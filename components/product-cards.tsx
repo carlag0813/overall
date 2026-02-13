@@ -221,7 +221,7 @@ export function ProductCards({
 
             <div className="space-y-3 bg-foreground/5 rounded-lg p-4 border border-foreground/10 mb-4">
               <div className="flex justify-between items-center">
-                <span className="text-sm text-foreground/70">Sueldo Neto (validado por RRHH)</span>
+                <span className="text-sm text-foreground/70">Sueldo Neto </span>
                 <span className="font-bold text-foreground">{formatCurrency(netSalary)}</span>
               </div>
 
