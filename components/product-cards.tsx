@@ -70,7 +70,7 @@ export function ProductCards({
           <div className="flex-1 min-w-0">
             <h2 className="text-lg md:text-xl font-bold text-foreground">¡Hola Carlos!</h2>
             <p className="font-semibold text-foreground leading-tight text-xs md:text-sm">
-              <span className="block md:inline">Conoce tus créditos disponibles.</span>
+              <span className="block md:inline">Conoce tus créditos disponibles</span>
               
             </p>
           </div>
