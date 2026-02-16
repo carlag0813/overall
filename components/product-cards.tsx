@@ -235,7 +235,12 @@ export function ProductCards({
                 <span className="text-sm font-medium text-destructive">-{formatCurrency(80)}</span>
               </div>
 
-              <p className="text-xs text-foreground/60 italic mt-1">La base debe ser mayor al límite de sueldo</p>
+              <div className="flex justify-between items-center bg-gradient-to-r from-blue-500/10 to-blue-400/5 p-2 rounded mt-2 border border-blue-500/20">
+                <span className="text-sm font-medium text-foreground">Base de seguridad</span>
+                <span className="text-sm font-bold text-blue-600">{formatCurrency(970)}</span>
+              </div>
+
+              <p className="text-xs text-foreground/60 italic">La base debe ser mayor al límite de sueldo</p>
 
               <Separator className="my-2" />
 
