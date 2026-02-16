@@ -69,19 +69,17 @@ export function LoanSimulator({
   const [scrolledToSummary, setScrolledToSummary] = useState(false)
 
   const calculations = useMemo(() => {
-    const monthlyInterestRate = productType === "adelanto" ? 0 : 0.01
-    const interest = productType === "adelanto" ? 0 : amount * monthlyInterestRate
+    const interestRate = productType === "adelanto" ? 0 : 0.03 // 3% del monto
+    const interest = productType === "adelanto" ? 0 : amount * interestRate
     const commission = amount * 0.015 // Comisión 1.5% del monto
-    const igv = amount * 0.18 // IGV 18% del monto
-    const totalInterest = productType === "adelanto" ? 0 : amount * monthlyInterestRate * term
+    const igv = (interest + commission) * 0.20 // IGV 20% de (Interés + Comisión)
     const totalToPay = amount + interest + commission + igv
     const monthlyPayment = totalToPay / term
     const netAmount = amount // El monto neto siempre es igual al monto solicitado
 
     return {
-      monthlyInterestRate: monthlyInterestRate * 100,
+      monthlyInterestRate: interestRate * 100,
       interest,
-      totalInterest,
       commission,
       igv,
       totalToPay,
