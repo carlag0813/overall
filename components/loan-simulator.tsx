@@ -292,8 +292,8 @@ export function LoanSimulator({
             <CardContent className="space-y-4">
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-muted-foreground">Monto solicitado</span>
-                  <span className="font-medium">{formatCurrency(amount)}</span>
+                  <span className="text-sm text-muted-foreground">Solicitarás (monto a recibir)</span>
+                  <span className="font-bold text-primary text-base">{formatCurrency(amount)}</span>
                 </div>
 
                 {productType === "prestamo" && (
@@ -305,17 +305,17 @@ export function LoanSimulator({
                           {calculations.monthlyInterestRate}%
                         </Badge>
                       </div>
-                      <span className="text-sm">S/ 18.00</span>
+                      <span className="text-sm font-medium">S/ 18.00</span>
                     </div>
 
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-muted-foreground">+ Comisión (1.5%)</span>
-                      <span className="text-sm">S/ 9.00</span>
+                      <span className="text-sm font-medium">S/ 9.00</span>
                     </div>
 
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-muted-foreground">+ IGV (18%) <span className="text-[10px] text-muted-foreground/70">(Impuesto al gobierno)</span></span>
-                      <span className="text-sm">S/ 5.40</span>
+                      <span className="text-sm font-medium">S/ 5.40</span>
                     </div>
                   </>
                 )}
@@ -323,13 +323,13 @@ export function LoanSimulator({
                 {productType === "adelanto" && (
                   <>
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-muted-foreground">Comisión (1.5%)</span>
-                      <span className="text-sm">{formatCurrency(calculations.commission)}</span>
+                      <span className="text-sm text-muted-foreground">+ Comisión (1.5%)</span>
+                      <span className="text-sm font-medium">{formatCurrency(calculations.commission)}</span>
                     </div>
 
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-muted-foreground">IGV 18%</span>
-                      <span className="text-sm">{formatCurrency(calculations.igv)}</span>
+                      <span className="text-sm text-muted-foreground">+ IGV (18%) <span className="text-[10px] text-muted-foreground/70">(Impuesto al gobierno)</span></span>
+                      <span className="text-sm font-medium">{formatCurrency(calculations.igv)}</span>
                     </div>
                   </>
                 )}
