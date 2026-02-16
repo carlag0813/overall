@@ -5,6 +5,7 @@ import { ChevronDown, UserX, CreditCard, Bell, Clock } from "lucide-react"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import Image from "next/image"
 
 interface UserHeaderProps {
   userName: string
@@ -27,7 +28,14 @@ export function UserHeader({ userName, employeeId, unreadNotifications = 0, clas
     <header className={`gradient-executive px-4 pt-3 pb-6 relative animate-in fade-in slide-in-from-top-4 duration-300 ${className || ""}`}>
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
-          <p className="text-xs font-light text-white/70 tracking-widest">LOGO HERE</p>
+          <Image
+            src="/images/logo-overcash.png"
+            alt="OverCash Logo"
+            width={120}
+            height={40}
+            className="h-14 w-auto"
+            priority
+          />
           <div className="h-5 w-px bg-white/20" />
           <p className="text-xs text-white/80 font-medium tracking-wide">
             Respaldado por <span className="font-bold text-white">Overall</span>
