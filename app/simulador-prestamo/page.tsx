@@ -789,14 +789,14 @@ function SimuladorPrestamoContent() {
                     setHasInteractedWithSlider(true)
                   }}
                   max={6}
-                  min={1}
+                  min={3}
                   step={1}
                   className="w-full"
                   rangeColor="bg-interaction"
                   thumbBorderColor="ring-interaction"
                 />
                 <div className="flex items-center justify-between px-1">
-                  <span className="text-xs text-muted-foreground">1 mes</span>
+                  <span className="text-xs text-muted-foreground">3 meses</span>
                   <span className="text-sm font-bold text-primary">{term} {term === 1 ? "mes" : "meses"}</span>
                   <span className="text-xs text-muted-foreground">6 meses</span>
                 </div>

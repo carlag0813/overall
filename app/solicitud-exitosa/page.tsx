@@ -88,49 +88,18 @@ function SolicitudExitosaContent() {
           )}
         </Card>
 
-        {/* Tarjeta de información - 2 elementos verde success */}
-        <div className="grid grid-cols-1 gap-2.5 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-400">
-          {/* Fila 1: Referencia - Color según producto */}
-          <div className={`bg-gradient-to-r ${productType === "prestamo" ? "from-amber-500/15 to-amber-400/10" : "from-emerald-500/15 to-emerald-400/10"} border ${productType === "prestamo" ? "border-amber-500/30" : "border-emerald-500/30"} rounded-lg p-3 group hover:shadow-md transition-all duration-200`}>
-            <div className="flex items-center justify-between gap-2">
-              <div className="flex items-center gap-2.5">
+        {/* Tarjeta de información - Solo Estado */}
+        <div className="animate-in fade-in slide-in-from-bottom-8 duration-700 delay-400">
+          {/* Card de Estado */}
+          <div className={`bg-gradient-to-r ${productType === "prestamo" ? "from-amber-500/15 to-amber-400/10" : "from-emerald-500/15 to-emerald-400/10"} border ${productType === "prestamo" ? "border-amber-500/30" : "border-emerald-500/30"} rounded-lg p-4 group hover:shadow-md transition-all duration-200`}>
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center gap-2.5 flex-1">
                 <div className={`p-1.5 rounded-lg ${productType === "prestamo" ? "bg-amber-500/20" : "bg-emerald-500/20"} group-hover:${productType === "prestamo" ? "bg-amber-500/30" : "bg-emerald-500/30"} transition-colors flex-shrink-0`}>
-                  <FileText className={`h-4 w-4 ${productType === "prestamo" ? "text-amber-600" : "text-emerald-600"}`} />
+                  <Clock className={`h-5 w-5 ${productType === "prestamo" ? "text-amber-600" : "text-emerald-600"}`} />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-[11px] text-foreground/70 font-semibold uppercase tracking-wide">N° referencia</p>
-                  <p className="text-xs text-foreground/60">Comprobante de aprobación</p>
-                </div>
-              </div>
-              <span className={`font-mono text-xs font-bold ${productType === "prestamo" ? "text-amber-600" : "text-emerald-600"} text-right flex-shrink-0`}>{referenceNumber}</span>
-            </div>
-          </div>
-
-          {/* Fila 2: Estado de depósito - Color según producto */}
-          <div className={`bg-gradient-to-r ${productType === "prestamo" ? "from-amber-500/15 to-amber-400/10" : "from-emerald-500/15 to-emerald-400/10"} border ${productType === "prestamo" ? "border-amber-500/30" : "border-emerald-500/30"} rounded-lg p-3 group hover:shadow-md transition-all duration-200`}>
-            <div className="flex items-center justify-between gap-2">
-              <div className="flex items-center gap-2.5">
-                <div className={`p-1.5 rounded-lg ${productType === "prestamo" ? "bg-amber-500/20" : "bg-emerald-500/20"} group-hover:${productType === "prestamo" ? "bg-amber-500/30" : "bg-emerald-500/30"} transition-colors flex-shrink-0`}>
-                  <Clock className={`h-4 w-4 ${productType === "prestamo" ? "text-amber-600" : "text-emerald-600"}`} />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-[11px] text-foreground/70 font-semibold uppercase tracking-wide">Estado</p>
-                  <p className="text-xs text-foreground/60">Tu dinero ya está en camino. Proceso de depósito en curso</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Fila 3: Documentos por correo - Color según producto */}
-          <div className={`bg-gradient-to-r ${productType === "prestamo" ? "from-amber-500/15 to-amber-400/10" : "from-emerald-500/15 to-emerald-400/10"} border ${productType === "prestamo" ? "border-amber-500/30" : "border-emerald-500/30"} rounded-lg p-3 group hover:shadow-md transition-all duration-200`}>
-            <div className="flex items-center justify-between gap-2">
-              <div className="flex items-center gap-2.5">
-                <div className={`p-1.5 rounded-lg ${productType === "prestamo" ? "bg-amber-500/20" : "bg-emerald-500/20"} group-hover:${productType === "prestamo" ? "bg-amber-500/30" : "bg-emerald-500/30"} transition-colors flex-shrink-0`}>
-                  <Building2 className={`h-4 w-4 ${productType === "prestamo" ? "text-amber-600" : "text-emerald-600"}`} />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-[11px] text-foreground/70 font-semibold uppercase tracking-wide">Documentación</p>
-                  <p className="text-xs text-foreground/60">Te enviaremos a tu correo la factura, cronograma y documentos asociados</p>
+                  <p className="text-xs text-foreground/70 font-semibold uppercase tracking-wide">Estado</p>
+                  <p className="text-sm text-foreground font-medium">¡Tu dinero ya está en camino!</p>
                 </div>
               </div>
             </div>
@@ -140,7 +109,7 @@ function SolicitudExitosaContent() {
         {/* Mensaje informativo con ícono */}
         <div className="p-3 bg-gradient-to-r from-success/5 via-success/3 to-success/5 rounded-lg border border-success/15 text-center animate-in fade-in duration-500 delay-500">
           <p className="text-xs text-foreground/75 leading-relaxed">
-            <span className="font-semibold text-success">✓ Aprobado:</span> Tu dinero ya está en proceso de depósito. Monitorea el estado en tu <span className="font-semibold text-success">historial de transacciones</span>.
+            <span className="font-semibold text-success">✓ Aprobado:</span> Monitorea el estado en tu <span className="font-semibold text-success">historial de transacciones</span>.
           </p>
         </div>
       </main>
