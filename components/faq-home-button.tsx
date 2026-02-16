@@ -15,12 +15,12 @@ export function FAQHomeButton() {
         onClick={() => setIsOpen(true)}
         variant="default"
         size="lg"
-        className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold shadow-lg hover:shadow-xl transition-all gap-2 flex-shrink-0"
+        className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold shadow-lg hover:shadow-xl transition-all gap-2 flex-shrink-0 w-full justify-center"
         title="Preguntas frecuentes"
         aria-label="Abrir preguntas frecuentes"
       >
         <HelpCircle className="h-5 w-5" />
-        <span className="hidden sm:inline">FAQ</span>
+        <span>FAQ</span>
       </Button>
 
       <FAQModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
