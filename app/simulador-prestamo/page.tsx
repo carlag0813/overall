@@ -65,7 +65,7 @@ function SimuladorPrestamoContent() {
 
   const maxAmount = Math.min(maxAmountByPercentage, mockUser.netSalary, availableForNewDeduction)
 
-  const [amount, setAmount] = useState(800)
+  const [amount, setAmount] = useState(300)
   const [term, setTerm] = useState(productType === "prestamo" ? 3 : 1)
   const [isRefreshing, setIsRefreshing] = useState(false)
   const [hasInteractedWithSlider, setHasInteractedWithSlider] = useState(false)
