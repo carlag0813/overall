@@ -216,13 +216,17 @@ function VerificacionSMSContent() {
       </header>
 
       <main className="px-4 py-6">
-        <div className="mb-6 p-4 bg-primary/5 rounded-lg border border-primary/20 animate-in fade-in slide-in-from-top-4 duration-500 delay-150">
-          <p className="text-xs text-muted-foreground mb-1">Confirmando solicitud</p>
-          <div className="flex items-center justify-between">
-            <span className="font-semibold text-foreground">
+        <div className="mb-6 p-5 bg-gradient-to-r from-primary/10 to-primary/5 rounded-xl border-2 border-primary/30 animate-in fade-in slide-in-from-top-4 duration-500 delay-150">
+          <p className="text-xs text-muted-foreground mb-3 font-medium uppercase tracking-wider">Monto solicitado</p>
+          <div className="flex items-center justify-between gap-4">
+            <span className="text-sm font-medium text-foreground">
               {productType === "prestamo" ? "Préstamo Personal" : "Adelanto de Salario"}
             </span>
-            <span className="font-bold text-primary">{formatCurrency(amount)}</span>
+            <span className="text-3xl font-bold text-primary">{formatCurrency(amount)}</span>
+          </div>
+          <div className="mt-3 pt-3 border-t border-primary/20 flex items-center justify-between">
+            <span className="text-xs text-muted-foreground">Plazo</span>
+            <span className="text-sm font-semibold text-foreground">{term} {term === 1 ? "mes" : "meses"}</span>
           </div>
         </div>
 
