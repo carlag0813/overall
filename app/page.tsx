@@ -38,9 +38,16 @@ export default function PreApprovedOfferPage() {
   const [showContent, setShowContent] = useState(true)
 
   useEffect(() => {
-    // El onboarding siempre se muestra al cargar la página
-    // El contenido se mostrará después de que se complete el onboarding
-    setShowContent(false)
+    // Verificar si el onboarding ya fue completado en esta sesión
+    const onboardingCompleted = sessionStorage.getItem("onboarding-completed-session")
+    
+    if (onboardingCompleted) {
+      // Si ya se completó, mostrar contenido directamente
+      setShowContent(true)
+    } else {
+      // Si no se completó, esperar a que se complete
+      setShowContent(false)
+    }
 
     const handleOnboardingComplete = () => {
       setShowContent(true)
