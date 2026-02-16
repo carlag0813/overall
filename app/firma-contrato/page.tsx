@@ -475,7 +475,7 @@ function FirmaContratoContent() {
             className="mt-0.5"
           />
           <Label htmlFor="terms" className="text-xs text-muted-foreground leading-tight">
-            Debo leer y aprobar los{" "}
+            Acepto y apruebo los{" "}
             <button onClick={() => setShowTermsModal(true)} className="text-primary underline underline-offset-2">
               términos y condiciones
             </button>

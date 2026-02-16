@@ -392,7 +392,7 @@ function FirmaContratoAdelantoContent() {
             className="mt-0.5"
           />
           <Label htmlFor="terms" className="text-xs text-muted-foreground leading-tight">
-            Autorizo el descuento por planilla y acepto los{" "}
+            Acepto y apruebo los{" "}
             <button onClick={() => setShowTermsModal(true)} className="text-primary underline font-medium">
               términos y condiciones
             </button>{" "}

@@ -11,16 +11,18 @@ export function AppLoader() {
     // Solo mostrar loader en la página home
     if (pathname !== "/") return
 
-    // Limpiar el sessionStorage para que siempre se muestre el onboarding
-    sessionStorage.removeItem("onboarding-completed-session")
+    // Verificar si el onboarding ya fue completado en esta sesión
+    const onboardingCompleted = sessionStorage.getItem("onboarding-completed-session")
     
-    setIsVisible(true)
-    
-    const timer = setTimeout(() => {
-      setIsVisible(false)
-    }, 2500)
+    if (!onboardingCompleted) {
+      setIsVisible(true)
+      
+      const timer = setTimeout(() => {
+        setIsVisible(false)
+      }, 2500)
 
-    return () => clearTimeout(timer)
+      return () => clearTimeout(timer)
+    }
   }, [pathname])
 
   if (!isVisible) return null
