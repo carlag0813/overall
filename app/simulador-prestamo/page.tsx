@@ -36,13 +36,13 @@ import { Separator } from "@/components/ui/separator"
 
 const mockUser = {
   name: "Carlos Mendoza",
-  netSalary: 3200,
-  grossSalary: 4000,
+  netSalary: 1200,
+  grossSalary: 1500,
   hasActiveLoan: false,
   recentRequestCount: 2,
   bankAccount: "BCP ****1234",
-  existingJudicialDeductions: 200,
-  existingOtherDeductions: 150,
+  existingJudicialDeductions: 75,
+  existingOtherDeductions: 50,
 }
 
 function SimuladorPrestamoContent() {
