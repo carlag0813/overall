@@ -69,17 +69,17 @@ export function LoanSimulator({
   const [scrolledToSummary, setScrolledToSummary] = useState(false)
 
   const calculations = useMemo(() => {
-    const monthlyInterestRate = productType === "adelanto" ? 0 : 0.01
-    const commission = productType === "adelanto" ? amount * 0.015 : amount * 0.02
-    const igv = commission * 0.18
-    const totalInterest = productType === "adelanto" ? 0 : amount * monthlyInterestRate * term
-    const totalToPay = amount + commission + igv + totalInterest
+    const interestRate = productType === "adelanto" ? 0 : 0.03 // 3% del monto para préstamo
+    const interest = productType === "adelanto" ? 0 : amount * interestRate
+    const commission = productType === "adelanto" ? amount * 0.05 : amount * 0.015 // Adelanto: 5%, Préstamo: 1.5%
+    const igv = productType === "adelanto" ? (commission * 0.18) : ((interest + commission) * 0.20) // Adelanto: 18% de comisión, Préstamo: 20% de (interés + comisión)
+    const totalToPay = amount + interest + commission + igv
     const monthlyPayment = totalToPay / term
     const netAmount = amount // El monto neto siempre es igual al monto solicitado
 
     return {
-      monthlyInterestRate: monthlyInterestRate * 100,
-      totalInterest,
+      monthlyInterestRate: interestRate * 100,
+      interest,
       commission,
       igv,
       totalToPay,
@@ -292,30 +292,30 @@ export function LoanSimulator({
             <CardContent className="space-y-4">
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-muted-foreground">Monto solicitado</span>
-                  <span className="font-medium">{formatCurrency(amount)}</span>
+                  <span className="text-sm text-muted-foreground">Solicitarás (monto a recibir)</span>
+                  <span className="font-bold text-primary text-base">{formatCurrency(amount)}</span>
                 </div>
 
                 {productType === "prestamo" && (
                   <>
                     <div className="flex justify-between items-center">
                       <div className="flex items-center gap-1">
-                        <span className="text-sm text-muted-foreground">Interés mensual</span>
+                        <span className="text-sm text-muted-foreground">+ Interés</span>
                         <Badge variant="outline" className="text-[10px] px-1.5 py-0">
                           {calculations.monthlyInterestRate}%
                         </Badge>
                       </div>
-                      <span className="text-sm">{formatCurrency(calculations.totalInterest)}</span>
+                      <span className="text-sm font-medium">{formatCurrency(calculations.interest)}</span>
                     </div>
 
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-muted-foreground">Comisión (2%)</span>
-                      <span className="text-sm">{formatCurrency(calculations.commission)}</span>
+                      <span className="text-sm text-muted-foreground">+ Comisión (1.5%)</span>
+                      <span className="text-sm font-medium">{formatCurrency(calculations.commission)}</span>
                     </div>
 
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-muted-foreground">IGV 18%</span>
-                      <span className="text-sm">{formatCurrency(calculations.igv)}</span>
+                      <span className="text-sm text-muted-foreground">+ IGV (18%) <span className="text-[10px] text-muted-foreground/70">(Impuesto al gobierno)</span></span>
+                      <span className="text-sm font-medium">{formatCurrency(calculations.igv)}</span>
                     </div>
                   </>
                 )}
@@ -323,13 +323,13 @@ export function LoanSimulator({
                 {productType === "adelanto" && (
                   <>
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-muted-foreground">Comisión (1.5%)</span>
-                      <span className="text-sm">{formatCurrency(calculations.commission)}</span>
+                      <span className="text-sm text-muted-foreground">+ Comisión (5%)</span>
+                      <span className="text-sm font-medium">{formatCurrency(calculations.commission)}</span>
                     </div>
 
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-muted-foreground">IGV 18%</span>
-                      <span className="text-sm">{formatCurrency(calculations.igv)}</span>
+                      <span className="text-sm text-muted-foreground">+ IGV (18%) <span className="text-[10px] text-muted-foreground/70">(Impuesto al gobierno)</span></span>
+                      <span className="text-sm font-medium">{formatCurrency(calculations.igv)}</span>
                     </div>
                   </>
                 )}
@@ -337,8 +337,8 @@ export function LoanSimulator({
                 <Separator />
 
                 <div className="flex justify-between items-center">
-                  <span className="text-sm font-medium text-foreground">Monto neto a recibir</span>
-                  <span className="text-lg font-bold text-primary">{formatCurrency(calculations.netAmount)}</span>
+                  <span className="text-sm font-medium text-foreground">Total a descontar</span>
+                  <span className="text-lg font-bold text-primary">{formatCurrency(calculations.totalToPay)}</span>
                 </div>
 
                 {productType === "prestamo" && (

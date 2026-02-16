@@ -51,7 +51,7 @@ function SimuladorPrestamoContent() {
   const searchParams = useSearchParams()
   const productType = (searchParams.get("tipo") as "adelanto" | "prestamo") || "prestamo"
 
-  const baseMaxPercentage = productType === "adelanto" ? 0.4 : 0.5
+  const baseMaxPercentage = productType === "adelanto" ? 0.5 : 0.5
   const frequencyPenalty = mockUser.recentRequestCount > 3 ? 0.2 : 0
   const effectiveMaxPercentage = Math.max(0.1, baseMaxPercentage - frequencyPenalty)
 
@@ -982,12 +982,12 @@ function SimuladorPrestamoContent() {
                   </div>
                 )}
 
-                {/* Comisión */}
-                {productType === "prestamo" && (
+                {/* Comisión - Solo para Adelanto */}
+                {productType === "adelanto" && (
                   <div className="flex items-start justify-between text-xs gap-2 pb-2 border-b border-primary/10">
                     <div className="flex-1">
                       <div className="flex items-center gap-1">
-                        <span className="font-semibold text-foreground">- Comisión (2%)</span>
+                        <span className="font-semibold text-foreground">+ Comisión (5%)</span>
                         <TooltipProvider>
                           <Tooltip>
                             <TooltipTrigger>
@@ -995,7 +995,7 @@ function SimuladorPrestamoContent() {
                             </TooltipTrigger>
                             <TooltipContent className="max-w-xs">
                               <p className="text-xs">
-                                Cobro por la gestión y procesamiento de tu préstamo.
+                                Cobro por la gestión y procesamiento de tu adelanto.
                               </p>
                             </TooltipContent>
                           </Tooltip>
@@ -1004,7 +1004,34 @@ function SimuladorPrestamoContent() {
                       <p className="text-[10px] text-foreground/70">(cobro por gestión)</p>
                     </div>
                     <p className="font-bold text-foreground whitespace-nowrap">
-                      {formatCurrency(calculations.transactionFee)}
+                      {formatCurrency(amount * 0.05)}
+                    </p>
+                  </div>
+                )}
+
+                {/* IGV - Para ambos productos */}
+                {productType === "adelanto" && (
+                  <div className="flex items-start justify-between text-xs gap-2 pb-2 border-b border-primary/10">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-1">
+                        <span className="font-semibold text-foreground">+ IGV (18%)</span>
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger>
+                              <Info className="h-3 w-3 text-foreground/50 hover:text-primary" />
+                            </TooltipTrigger>
+                            <TooltipContent className="max-w-xs">
+                              <p className="text-xs">
+                                El gobierno cobra impuesto (IGV) sobre la comisión.
+                              </p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </div>
+                      <p className="text-[10px] text-foreground/70">(impuesto al gobierno)</p>
+                    </div>
+                    <p className="font-bold text-foreground whitespace-nowrap">
+                      {formatCurrency((amount * 0.05) * 0.18)}
                     </p>
                   </div>
                 )}
