@@ -109,7 +109,7 @@ function SolicitudExitosaContent() {
         {/* Mensaje informativo con ícono */}
         <div className="p-3 bg-gradient-to-r from-success/5 via-success/3 to-success/5 rounded-lg border border-success/15 text-center animate-in fade-in duration-500 delay-500">
           <p className="text-xs text-foreground/75 leading-relaxed">
-            <span className="font-semibold text-success">✓ Aprobado:</span> Monitorea el estado en tu <span className="font-semibold text-success">historial de transacciones</span>.
+            <span className="font-semibold text-success">✓ Aprobado:</span> Monitora el estado en tu <span className="font-semibold text-success">historial de transacciones</span>.
           </p>
         </div>
       </main>
