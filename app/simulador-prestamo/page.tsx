@@ -1007,6 +1007,42 @@ function SimuladorPrestamoContent() {
                   </div>
                 )}
 
+                {/* Solicitarás (adelanto) */}
+                {productType === "adelanto" && (
+                  <div className="flex items-start justify-between text-xs gap-2 pb-2 border-b border-primary/10">
+                    <div className="flex-1">
+                      <span className="font-semibold text-foreground">Solicitarás (monto a recibir)</span>
+                    </div>
+                    <p className="font-bold text-foreground whitespace-nowrap">
+                      {formatCurrency(amount)}
+                    </p>
+                  </div>
+                )}
+
+                {/* Interés - No aplica para adelanto */}
+                {productType === "adelanto" && (
+                  <div className="flex items-start justify-between text-xs gap-2 pb-2 border-b border-primary/10">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-1">
+                        <span className="font-semibold text-foreground">+ Interés</span>
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger>
+                              <Info className="h-3 w-3 text-foreground/50 hover:text-primary" />
+                            </TooltipTrigger>
+                            <TooltipContent className="max-w-xs">
+                              <p className="text-xs">
+                                El adelanto de salario no genera intereses adicionales.
+                              </p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </div>
+                    </div>
+                    <p className="font-bold text-foreground whitespace-nowrap">—</p>
+                  </div>
+                )}
+
                 {/* Comisión - Solo para Adelanto */}
                 {productType === "adelanto" && (
                   <div className="flex items-start justify-between text-xs gap-2 pb-2 border-b border-primary/10">
@@ -1026,7 +1062,6 @@ function SimuladorPrestamoContent() {
                           </Tooltip>
                         </TooltipProvider>
                       </div>
-                      <p className="text-[10px] text-foreground/70">(cobro por gestión)</p>
                     </div>
                     <p className="font-bold text-foreground whitespace-nowrap">
                       {formatCurrency(amount * 0.05)}
@@ -1034,7 +1069,7 @@ function SimuladorPrestamoContent() {
                   </div>
                 )}
 
-                {/* IGV - Para ambos productos */}
+                {/* IGV - Para adelanto */}
                 {productType === "adelanto" && (
                   <div className="flex items-start justify-between text-xs gap-2 pb-2 border-b border-primary/10">
                     <div className="flex-1">
@@ -1053,7 +1088,7 @@ function SimuladorPrestamoContent() {
                           </Tooltip>
                         </TooltipProvider>
                       </div>
-                      <p className="text-[10px] text-foreground/70">(impuesto al gobierno)</p>
+                      <p className="text-[10px] text-foreground/70">(Impuesto al gobierno)</p>
                     </div>
                     <p className="font-bold text-foreground whitespace-nowrap">
                       {formatCurrency((amount * 0.05) * 0.18)}
@@ -1065,7 +1100,9 @@ function SimuladorPrestamoContent() {
                 <div className="bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 rounded-lg p-3.5 mt-2">
                   <p className="text-[10px] text-foreground/70 mb-1.5 font-semibold">Total a descontar</p>
                   <p className="text-2xl font-bold text-primary">
-                    {formatCurrency(amount + (amount * 0.03) + (amount * 0.015) + ((amount * 0.03 + amount * 0.015) * 0.20))}
+                    {productType === "prestamo"
+                      ? formatCurrency(amount + (amount * 0.03) + (amount * 0.015) + ((amount * 0.03 + amount * 0.015) * 0.20))
+                      : formatCurrency(amount + (amount * 0.05) + ((amount * 0.05) * 0.18))}
                   </p>
                 </div>
 
