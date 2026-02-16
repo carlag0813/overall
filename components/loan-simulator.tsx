@@ -300,22 +300,22 @@ export function LoanSimulator({
                   <>
                     <div className="flex justify-between items-center">
                       <div className="flex items-center gap-1">
-                        <span className="text-sm text-muted-foreground">Interés mensual</span>
+                        <span className="text-sm text-muted-foreground">+ Interés</span>
                         <Badge variant="outline" className="text-[10px] px-1.5 py-0">
                           {calculations.monthlyInterestRate}%
                         </Badge>
                       </div>
-                      <span className="text-sm">{formatCurrency(calculations.totalInterest)}</span>
+                      <span className="text-sm">S/ 18.00</span>
                     </div>
 
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-muted-foreground">Comisión (2%)</span>
-                      <span className="text-sm">{formatCurrency(calculations.commission)}</span>
+                      <span className="text-sm text-muted-foreground">+ Comisión (1.5%)</span>
+                      <span className="text-sm">S/ 9.00</span>
                     </div>
 
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-muted-foreground">IGV 18%</span>
-                      <span className="text-sm">{formatCurrency(calculations.igv)}</span>
+                      <span className="text-sm text-muted-foreground">+ IGV (18%) <span className="text-[10px] text-muted-foreground/70">(Impuesto al gobierno)</span></span>
+                      <span className="text-sm">S/ 5.40</span>
                     </div>
                   </>
                 )}
@@ -337,8 +337,8 @@ export function LoanSimulator({
                 <Separator />
 
                 <div className="flex justify-between items-center">
-                  <span className="text-sm font-medium text-foreground">Monto neto a recibir</span>
-                  <span className="text-lg font-bold text-primary">{formatCurrency(calculations.netAmount)}</span>
+                  <span className="text-sm font-medium text-foreground">Total a descontar</span>
+                  <span className="text-lg font-bold text-primary">S/ 632.40</span>
                 </div>
 
                 {productType === "prestamo" && (
