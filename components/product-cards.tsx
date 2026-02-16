@@ -64,7 +64,7 @@ export function ProductCards({
   return (
     <section>
       {/* Header con saludo e iconos de historial y FAQ */}
-      <div className="flex items-center justify-between gap-2 md:gap-3 mb-8 px-1 mt-5 animate-in fade-in slide-in-from-top-2 duration-500 delay-150">
+      <div className="flex items-start justify-between gap-3 md:gap-4 mb-8 px-1 mt-5 animate-in fade-in slide-in-from-top-2 duration-500 delay-150">
         <div className="flex items-center gap-2 md:gap-3 flex-1 min-w-0">
           <span className="text-3xl md:text-4xl flex-shrink-0">👋</span>
           <div className="flex-1 min-w-0">
@@ -75,12 +75,12 @@ export function ProductCards({
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-1.5 md:gap-2 flex-shrink-0">
-          <Link href="/mi-historial" className="flex-shrink-0">
+        <div className="flex flex-col items-center gap-2 flex-shrink-0">
+          <Link href="/mi-historial" className="flex-shrink-0 w-full">
             <Button 
               variant="default"
               size="sm"
-              className="md:size-lg bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white font-semibold shadow-lg hover:shadow-xl transition-all gap-1 md:gap-2 h-9 md:h-10"
+              className="md:size-lg bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white font-semibold shadow-lg hover:shadow-xl transition-all gap-1 md:gap-2 h-9 md:h-10 w-full justify-center"
               title="Ver mis solicitudes"
             >
               <ClipboardCheck className="h-4 w-4 md:h-5 md:w-5" />
@@ -88,7 +88,7 @@ export function ProductCards({
             </Button>
           </Link>
 
-          {/* FAQ Button - Estático al lado del historial */}
+          {/* FAQ Button - Debajo del botón de Mis Operaciones */}
           <FAQHomeButton />
         </div>
       </div>
