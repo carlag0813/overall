@@ -184,14 +184,13 @@ export function OnboardingCarousel() {
                 transform: "translateZ(0)"
               }}>
                 <h1 className="text-4xl font-bold leading-tight text-balance animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
-                  {slide.title}
+                  ¡Bienvenido/a!
                 </h1>
-                <p className="text-lg font-semibold text-white/90 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
-                  {slide.subtitle}
-                </p>
-                <p className="text-white/80 leading-relaxed text-base font-bold animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-                  {slide.description}
-                </p>
+                <div className="space-y-2 text-white/90">
+                  <p className="text-base font-medium animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">Tu plataforma de crédito flexible.</p>
+                  <p className="text-base font-medium animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">Acceso a crédito inmediato.</p>
+                  <p className="text-base font-medium animate-in fade-in slide-in-from-bottom-4 duration-700 delay-400">Rápido, seguro y 100% digital.</p>
+                </div>
               </div>
 
               {/* Botones de navegación para slide 1 */}
@@ -223,15 +222,12 @@ export function OnboardingCarousel() {
                 transform: "translateZ(0)"
               }}>
                 <h1 className="text-3xl font-bold leading-tight text-balance text-amber-800 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
-                  {slide.title}
+                  Préstamo Descuento de Planilla
                 </h1>
-                <p className="text-base font-semibold text-amber-700 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
-                  {slide.subtitle}
-                </p>
-                <div className="space-y-2 text-left pt-2">
-                  <p className="text-sm text-amber-800 font-medium animate-in fade-in slide-in-from-left-8 duration-700 delay-300">Simula tus montos y cuotas.</p>
-                  <p className="text-sm text-amber-800 font-medium animate-in fade-in slide-in-from-left-8 duration-700 delay-400">Sin aprobadores ni esperas.</p>
-                  <p className="text-sm text-amber-800 font-medium animate-in fade-in slide-in-from-left-8 duration-700 delay-500">Recibe tu dinero de inmediato.</p>
+                <div className="space-y-2 text-left text-amber-800">
+                  <p className="text-sm font-medium animate-in fade-in slide-in-from-left-8 duration-700 delay-200">Simula tus montos y cuotas.</p>
+                  <p className="text-sm font-medium animate-in fade-in slide-in-from-left-8 duration-700 delay-300">Sin aprobadores ni esperas.</p>
+                  <p className="text-sm font-medium animate-in fade-in slide-in-from-left-8 duration-700 delay-400">Recibe tu dinero de inmediato.</p>
                 </div>
               </div>
 
@@ -264,14 +260,12 @@ export function OnboardingCarousel() {
                 transform: "translateZ(0)"
               }}>
                 <h1 className="text-3xl font-bold leading-tight text-balance text-white animate-in fade-in slide-in-from-top-4 duration-700 delay-100">
-                  {slide.title}
+                  Adelanto de Salario
                 </h1>
-                <p className="text-base font-semibold text-white/90 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
-                  {slide.subtitle}
-                </p>
-                <div className="space-y-2 text-left pt-2">
-                  <p className="text-sm text-white/90 font-medium animate-in fade-in slide-in-from-right-8 duration-700 delay-300">Sin aprobadores. Solo firmas tú.</p>
-                  <p className="text-sm text-white/90 font-medium animate-in fade-in slide-in-from-right-8 duration-700 delay-400">Recibe tu dinero de inmediato.</p>
+                <div className="space-y-2 text-left text-white/90">
+                  <p className="text-sm font-medium animate-in fade-in slide-in-from-right-8 duration-700 delay-200">Adelanta hasta 50% del salario.</p>
+                  <p className="text-sm font-medium animate-in fade-in slide-in-from-right-8 duration-700 delay-300">Sin aprobadores. Solo firmas tú.</p>
+                  <p className="text-sm font-medium animate-in fade-in slide-in-from-right-8 duration-700 delay-400">Recibe tu dinero de inmediato.</p>
                 </div>
               </div>
 
