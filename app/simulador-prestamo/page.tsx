@@ -942,20 +942,45 @@ function SimuladorPrestamoContent() {
                           </TooltipTrigger>
                           <TooltipContent className="max-w-xs">
                             <p className="text-xs">
-                              El banco cobra 1% cada mes por dejarte usar el dinero. Es como una renta del efectivo.
+                              El banco cobra 3% del monto por dejarte usar el dinero.
                             </p>
                           </TooltipContent>
                         </Tooltip>
                       </TooltipProvider>
                     </div>
-                    <p className="text-[10px] text-foreground/70">(costo de pedir dinero prestado)</p>
                   </div>
                   <p className="font-bold text-foreground whitespace-nowrap">
-                    {productType === "prestamo" ? formatCurrency(calculations.totalInterest) : "—"}
+                    {productType === "prestamo" ? formatCurrency(calculations.interest) : "—"}
                   </p>
                 </div>
 
-                {/* IGV */}
+                {/* Comisión - Solo para Préstamo */}
+                {productType === "prestamo" && (
+                  <div className="flex items-start justify-between text-xs gap-2 pb-2 border-b border-primary/10">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-1">
+                        <span className="font-semibold text-foreground">+ Comisión (1.5%)</span>
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger>
+                              <Info className="h-3 w-3 text-foreground/50 hover:text-primary" />
+                            </TooltipTrigger>
+                            <TooltipContent className="max-w-xs">
+                              <p className="text-xs">
+                                Cobro por la gestión y procesamiento de tu préstamo.
+                              </p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </div>
+                    </div>
+                    <p className="font-bold text-foreground whitespace-nowrap">
+                      {formatCurrency(calculations.commission)}
+                    </p>
+                  </div>
+                )}
+
+                {/* IGV (18%) */}
                 {productType === "prestamo" && (
                   <div className="flex items-start justify-between text-xs gap-2 pb-2 border-b border-primary/10">
                     <div className="flex-1">
@@ -968,16 +993,16 @@ function SimuladorPrestamoContent() {
                             </TooltipTrigger>
                             <TooltipContent className="max-w-xs">
                               <p className="text-xs">
-                                El gobierno cobra impuesto (IGV) solo sobre los intereses, no sobre tu monto principal.
+                                El gobierno cobra impuesto (IGV) sobre intereses y comisión.
                               </p>
                             </TooltipContent>
                           </Tooltip>
                         </TooltipProvider>
                       </div>
-                      <p className="text-[10px] text-foreground/70">(impuesto al gobierno)</p>
+                      <p className="text-[10px] text-foreground/70">(Impuesto al gobierno)</p>
                     </div>
                     <p className="font-bold text-foreground whitespace-nowrap">
-                      {formatCurrency(calculations.igvOnInterest)}
+                      {formatCurrency(calculations.igv)}
                     </p>
                   </div>
                 )}
@@ -1036,9 +1061,9 @@ function SimuladorPrestamoContent() {
                   </div>
                 )}
 
-                {/* Total a pagar - DESTACADO */}
+                {/* Total a descontar - DESTACADO */}
                 <div className="bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 rounded-lg p-3.5 mt-2">
-                  <p className="text-[10px] text-foreground/70 mb-1.5 font-semibold">Total a pagar</p>
+                  <p className="text-[10px] text-foreground/70 mb-1.5 font-semibold">Total a descontar</p>
                   <p className="text-2xl font-bold text-primary">
                     {formatCurrency(calculations.totalToPay)}
                   </p>
