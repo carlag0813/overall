@@ -33,7 +33,7 @@ export function UserHeader({ userName, employeeId, unreadNotifications = 0, clas
             alt="OverCash Logo"
             width={120}
             height={40}
-            className="h-10 w-auto"
+            className="h-14 w-auto"
             priority
           />
           <div className="h-5 w-px bg-white/20" />
