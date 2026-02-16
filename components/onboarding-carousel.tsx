@@ -224,7 +224,7 @@ export function OnboardingCarousel() {
                 <h1 className="text-3xl font-bold leading-tight text-balance text-amber-800 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
                   Préstamo Descuento de Planilla
                 </h1>
-                <div className="space-y-2 text-left text-amber-800">
+                <div className="space-y-2 text-center text-amber-800">
                   <p className="text-sm font-medium animate-in fade-in slide-in-from-left-8 duration-700 delay-200">Simula tus montos y cuotas.</p>
                   <p className="text-sm font-medium animate-in fade-in slide-in-from-left-8 duration-700 delay-300">Sin aprobadores ni esperas.</p>
                   <p className="text-sm font-medium animate-in fade-in slide-in-from-left-8 duration-700 delay-400">Recibe tu dinero de inmediato.</p>
@@ -232,7 +232,18 @@ export function OnboardingCarousel() {
               </div>
 
               {/* Botones de navegación para slide 2 */}
-              <div className="flex items-center justify-center mt-6">
+              <div className="flex items-center justify-center gap-4 mt-6">
+                <Button
+                  onClick={handlePrev}
+                  disabled={isTransitioning}
+                  className="rounded-full text-white bg-white/20 hover:bg-white/30 disabled:opacity-20 disabled:cursor-not-allowed h-12 w-12"
+                  style={{
+                    transition: "background-color 200ms cubic-bezier(0.4, 0, 0.2, 1)",
+                    backfaceVisibility: "hidden"
+                  }}
+                >
+                  <ChevronLeft className="w-7 h-7" />
+                </Button>
                 <Button
                   onClick={handleNext}
                   disabled={isTransitioning}
@@ -262,25 +273,38 @@ export function OnboardingCarousel() {
                 <h1 className="text-3xl font-bold leading-tight text-balance text-white animate-in fade-in slide-in-from-top-4 duration-700 delay-100">
                   Adelanto de Salario
                 </h1>
-                <div className="space-y-2 text-left text-white/90">
+                <div className="space-y-2 text-center text-white/90">
                   <p className="text-sm font-medium animate-in fade-in slide-in-from-right-8 duration-700 delay-200">Adelanta hasta 50% del salario.</p>
                   <p className="text-sm font-medium animate-in fade-in slide-in-from-right-8 duration-700 delay-300">Sin aprobadores. Solo firmas tú.</p>
                   <p className="text-sm font-medium animate-in fade-in slide-in-from-right-8 duration-700 delay-400">Recibe tu dinero de inmediato.</p>
                 </div>
               </div>
 
-              {/* Botón solo en el 3er slide */}
-              <Button
-                onClick={handleComplete}
-                disabled={isTransitioning}
-                className="bg-white text-primary font-bold py-3 px-6 rounded-full text-base hover:bg-white/95 shadow-lg hover:shadow-xl disabled:opacity-50 w-auto"
-                style={{
-                  transition: "background-color 200ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1)",
-                  backfaceVisibility: "hidden"
-                }}
-              >
-                ¡Entendido!
-              </Button>
+              {/* Botones para slide 3 */}
+              <div className="flex items-center justify-center gap-4">
+                <Button
+                  onClick={handlePrev}
+                  disabled={isTransitioning}
+                  className="rounded-full text-white bg-white/20 hover:bg-white/30 disabled:opacity-20 disabled:cursor-not-allowed h-12 w-12"
+                  style={{
+                    transition: "background-color 200ms cubic-bezier(0.4, 0, 0.2, 1)",
+                    backfaceVisibility: "hidden"
+                  }}
+                >
+                  <ChevronLeft className="w-7 h-7" />
+                </Button>
+                <Button
+                  onClick={handleComplete}
+                  disabled={isTransitioning}
+                  className="bg-white text-primary font-bold py-3 px-6 rounded-full text-base hover:bg-white/95 shadow-lg hover:shadow-xl disabled:opacity-50"
+                  style={{
+                    transition: "background-color 200ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1)",
+                    backfaceVisibility: "hidden"
+                  }}
+                >
+                  ¡Entendido!
+                </Button>
+              </div>
             </div>
           )}
         </div>
