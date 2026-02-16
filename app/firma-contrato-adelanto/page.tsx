@@ -38,9 +38,9 @@ function FirmaContratoAdelantoContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
 
-  const amount = Number(searchParams.get("monto")) || 800
+  const amount = Number(searchParams.get("monto")) || 600
   const productType = "adelanto"
-  const transactionFee = amount * 0.015 // 1.5% comisión por adelanto
+  const transactionFee = amount * 0.05 // 5% comisión por adelanto
 
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [isDrawing, setIsDrawing] = useState(false)
@@ -52,8 +52,8 @@ function FirmaContratoAdelantoContent() {
   const [detailsExpanded, setDetailsExpanded] = useState(false)
 
   // Cálculos para adelanto de sueldo
-  const commission = amount * 0.015 // 1.5% comisión por adelanto
-  const igv = commission * 0.18
+  const commission = amount * 0.05 // 5% comisión por adelanto
+  const igv = commission * 0.18 // 18% del IGV sobre la comisión
   const netAmount = amount // El monto neto siempre es igual al monto solicitado
 
   // Fecha de descuento: próxima quincena
@@ -269,7 +269,7 @@ function FirmaContratoAdelantoContent() {
                     <span className="font-medium">{formatCurrency(amount)}</span>
                   </div>
                   <div className="flex justify-between text-xs py-1.5 px-2 bg-secondary/10 rounded">
-                    <span className="text-muted-foreground">Comisión de transacción (1.5%)</span>
+                    <span className="text-muted-foreground">Comisión de transacción (5%)</span>
                     <span className="font-medium text-amber-600">+{formatCurrency(commission)}</span>
                   </div>
                   <div className="flex justify-between text-xs py-1.5 px-2 bg-secondary/10 rounded">
@@ -431,7 +431,7 @@ function FirmaContratoAdelantoContent() {
             <section>
               <h4 className="font-semibold text-foreground mb-2">2. Comisión por Transacción</h4>
               <p>
-                Se aplica una comisión del 1.5% sobre el monto adelantado para cubrir los gastos administrativos de la
+                Se aplica una comisión del 5% sobre el monto adelantado para cubrir los gastos administrativos de la
                 operación. Esta comisión se descuenta del monto a depositar.
               </p>
             </section>
