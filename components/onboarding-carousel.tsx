@@ -20,18 +20,18 @@ interface OnboardingSlide {
 const slides: OnboardingSlide[] = [
   {
     id: 1,
-    title: "¡Bienvenido!",
+    title: "¡Bienvenido/a!",
     subtitle: "Tu plataforma de crédito flexible",
-    description: "Acceso inmediato a crédito personalizado sin complicaciones. Rápido, seguro y 100% digital.",
+    description: "Acceso a crédito inmediato. Rápido, seguro y 100% digital.",
     image: "/images/carrusel1.png",
     gradient: "from-[#6B5AE8] via-[#5B4A9F] to-[#4B3A8F]",
     buttonText: "Siguiente",
   },
   {
     id: 2,
-    title: "Préstamo Personal",
-    subtitle: "Hasta 50% de tu sueldo neto",
-    description: "Montos flexibles, plazo de 1 a 6 meses y tasa competitiva. Aprobación rápida.",
+    title: "Préstamo Descuento de Planilla",
+    subtitle: "Simula tus montos y cuotas",
+    description: "Sin aprobadores ni esperas. Recibe tu dinero de inmediato.",
     image: "/images/carrusel2.png",
     gradient: "from-[#D97706] via-[#F59E0B] to-[#FFF1B9]",
     buttonText: "Siguiente",
@@ -39,8 +39,8 @@ const slides: OnboardingSlide[] = [
   {
     id: 3,
     title: "Adelanto de Salario",
-    subtitle: "Tu dinero, cuando lo necesites",
-    description: "Hasta 30% de tu sueldo disponible inmediatamente. Sin intereses ni cargos ocultos.",
+    subtitle: "Adelanta hasta 50% del salario",
+    description: "Sin aprobadores. Solo firmas tú. Recibe tu dinero de inmediato.",
     image: "/images/carrusel3.png",
     gradient: "from-[#7FE5DE] via-[#5FD5D0] to-[#2FC9BD]",
     buttonText: "Comenzar",
@@ -222,42 +222,16 @@ export function OnboardingCarousel() {
                 backfaceVisibility: "hidden",
                 transform: "translateZ(0)"
               }}>
-                <h1 className="text-4xl font-bold leading-tight text-balance text-amber-800 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
+                <h1 className="text-3xl font-bold leading-tight text-balance text-amber-800 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
                   {slide.title}
                 </h1>
-                <p className="text-lg font-semibold text-amber-600 my-0 py-0 pb-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
+                <p className="text-base font-semibold text-amber-700 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
                   {slide.subtitle}
                 </p>
-                <div className="space-y-4 max-w-sm">
-                  {/* Paso 1 */}
-                  <div className="flex gap-4 items-start animate-in fade-in slide-in-from-left-8 duration-700 delay-300">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-white/20 border border-white/40 flex items-center justify-center transform transition-transform hover:scale-110">
-                      <span className="text-xs font-bold text-white">1</span>
-                    </div>
-                    <div className="flex-1 pt-1">
-                      <p className="leading-snug text-amber-800 text-left text-base font-semibold">Elige el monto que deseas y simula como se verán tus cuotas de pago.</p>
-                    </div>
-                  </div>
-
-                  {/* Paso 2 */}
-                  <div className="flex gap-4 items-start animate-in fade-in slide-in-from-left-8 duration-700 delay-400">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-white/20 border border-white/40 flex items-center justify-center transform transition-transform hover:scale-110">
-                      <span className="text-xs font-bold text-white">2</span>
-                    </div>
-                    <div className="flex-1 pt-1">
-                      <p className="leading-snug text-amber-800 text-left text-base font-semibold">Revisa y firma tu solicitud de préstamo.</p>
-                    </div>
-                  </div>
-
-                  {/* Paso 3 */}
-                  <div className="flex gap-4 items-start animate-in fade-in slide-in-from-left-8 duration-700 delay-500">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-white/20 border border-white/40 flex items-center justify-center transform transition-transform hover:scale-110">
-                      <span className="text-xs font-bold text-white">3</span>
-                    </div>
-                    <div className="flex-1 pt-1">
-                      <p className="leading-snug text-amber-800 text-left font-semibold text-base">¡Confirma y recibe tu dinero al recibir la solicitud aprobada!</p>
-                    </div>
-                  </div>
+                <div className="space-y-2 text-left pt-2">
+                  <p className="text-sm text-amber-800 font-medium animate-in fade-in slide-in-from-left-8 duration-700 delay-300">Simula tus montos y cuotas.</p>
+                  <p className="text-sm text-amber-800 font-medium animate-in fade-in slide-in-from-left-8 duration-700 delay-400">Sin aprobadores ni esperas.</p>
+                  <p className="text-sm text-amber-800 font-medium animate-in fade-in slide-in-from-left-8 duration-700 delay-500">Recibe tu dinero de inmediato.</p>
                 </div>
               </div>
 
@@ -289,40 +263,15 @@ export function OnboardingCarousel() {
                 backfaceVisibility: "hidden",
                 transform: "translateZ(0)"
               }}>
-                <h1 className="text-4xl font-bold leading-tight text-balance animate-in fade-in slide-in-from-top-4 duration-700 delay-100">
+                <h1 className="text-3xl font-bold leading-tight text-balance text-white animate-in fade-in slide-in-from-top-4 duration-700 delay-100">
                   {slide.title}
                 </h1>
-                
-                <div className="space-y-4 max-w-sm">
-                  {/* Paso 1 */}
-                  <div className="flex gap-4 items-start animate-in fade-in slide-in-from-right-8 duration-700 delay-300">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-white/20 border border-white/40 flex items-center justify-center transform transition-transform hover:scale-110">
-                      <span className="text-xs font-bold text-white">1</span>
-                    </div>
-                    <div className="flex-1 pt-1">
-                      <p className="leading-snug text-white/90 text-left text-base font-semibold">Elige el monto de tu adelanto y se indicará la fecha de descuento.      </p>
-                    </div>
-                  </div>
-
-                  {/* Paso 2 */}
-                  <div className="flex gap-4 items-start animate-in fade-in slide-in-from-right-8 duration-700 delay-400">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-white/20 border border-white/40 flex items-center justify-center transform transition-transform hover:scale-110">
-                      <span className="text-xs font-bold text-white">2</span>
-                    </div>
-                    <div className="flex-1 pt-1">
-                      <p className="leading-snug text-white/90 text-left font-semibold text-base">Revisa y firma tu solicitud de adelanto.</p>
-                    </div>
-                  </div>
-
-                  {/* Paso 3 */}
-                  <div className="flex gap-4 items-start animate-in fade-in slide-in-from-right-8 duration-700 delay-500">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-white/20 border border-white/40 flex items-center justify-center transform transition-transform hover:scale-110">
-                      <span className="text-xs font-bold text-white">3</span>
-                    </div>
-                    <div className="flex-1 pt-1">
-                      <p className="leading-snug text-white/90 text-left font-semibold text-base">¡Confirma y recibe tu dinero al recibir la solicitud aprobada!</p>
-                    </div>
-                  </div>
+                <p className="text-base font-semibold text-white/90 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
+                  {slide.subtitle}
+                </p>
+                <div className="space-y-2 text-left pt-2">
+                  <p className="text-sm text-white/90 font-medium animate-in fade-in slide-in-from-right-8 duration-700 delay-300">Sin aprobadores. Solo firmas tú.</p>
+                  <p className="text-sm text-white/90 font-medium animate-in fade-in slide-in-from-right-8 duration-700 delay-400">Recibe tu dinero de inmediato.</p>
                 </div>
               </div>
 
