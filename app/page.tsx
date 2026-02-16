@@ -11,12 +11,12 @@ import { AppFooter } from "@/components/app-footer"
 const mockUser = {
   name: "Carlos Mendoza",
   employeeId: "EMP-2024-0847",
-  netSalary: 3200,
+  netSalary: 1200,
   seniority: 8,
   hasActiveLoan: false,
-  legalDeductions: 320,
+  legalDeductions: 80,
   judicialDeductions: 150,
-  thirdPartyDeductions: 80,
+  thirdPartyDeductions: 50,
   projectedLBS: 280,
   recentRequestCount: 2,
   bankAccount: "BCP ****1234",
@@ -61,7 +61,7 @@ export default function PreApprovedOfferPage() {
     return Math.min(Math.max(0, available), mockUser.netSalary * 0.5)
   }
 
-  const salaryAdvanceAmount = calculateAvailableAmount(0.3)
+  const salaryAdvanceAmount = calculateAvailableAmount(0.5)
   const personalLoanAmount = calculateAvailableAmount(0.5)
 
   const pendingPayment = mockUser.activeLoans.reduce((sum, loan) => sum + loan.amount, 0)
