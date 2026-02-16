@@ -950,7 +950,7 @@ function SimuladorPrestamoContent() {
                     </div>
                   </div>
                   <p className="font-bold text-foreground whitespace-nowrap">
-                    {productType === "prestamo" ? formatCurrency(calculations.interest) : "—"}
+                    {productType === "prestamo" ? formatCurrency(amount * 0.03) : "—"}
                   </p>
                 </div>
 
@@ -975,7 +975,7 @@ function SimuladorPrestamoContent() {
                       </div>
                     </div>
                     <p className="font-bold text-foreground whitespace-nowrap">
-                      {formatCurrency(calculations.commission)}
+                      {formatCurrency(amount * 0.015)}
                     </p>
                   </div>
                 )}
@@ -1002,7 +1002,7 @@ function SimuladorPrestamoContent() {
                       <p className="text-[10px] text-foreground/70">(Impuesto al gobierno)</p>
                     </div>
                     <p className="font-bold text-foreground whitespace-nowrap">
-                      {formatCurrency(calculations.igv)}
+                      {formatCurrency((amount * 0.03 + amount * 0.015) * 0.20)}
                     </p>
                   </div>
                 )}
@@ -1065,7 +1065,7 @@ function SimuladorPrestamoContent() {
                 <div className="bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 rounded-lg p-3.5 mt-2">
                   <p className="text-[10px] text-foreground/70 mb-1.5 font-semibold">Total a descontar</p>
                   <p className="text-2xl font-bold text-primary">
-                    {formatCurrency(calculations.totalToPay)}
+                    {formatCurrency(amount + (amount * 0.03) + (amount * 0.015) + ((amount * 0.03 + amount * 0.015) * 0.20))}
                   </p>
                 </div>
 
