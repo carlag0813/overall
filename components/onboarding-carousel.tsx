@@ -187,9 +187,9 @@ export function OnboardingCarousel() {
                   ¡Bienvenido/a!
                 </h1>
                 <div className="space-y-2 text-white/90">
-                  <p className="text-base font-medium animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">Tu plataforma de crédito flexible.</p>
-                  <p className="text-base font-medium animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">Acceso a crédito inmediato.</p>
-                  <p className="text-base font-medium animate-in fade-in slide-in-from-bottom-4 duration-700 delay-400">Rápido, seguro y 100% digital.</p>
+                  <p className="text-lg font-semibold animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">Tu plataforma de crédito flexible.</p>
+                  <p className="text-lg font-semibold animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">Acceso a crédito inmediato.</p>
+                  <p className="text-lg font-semibold animate-in fade-in slide-in-from-bottom-4 duration-700 delay-400">Rápido, seguro y 100% digital.</p>
                 </div>
               </div>
 
@@ -225,9 +225,9 @@ export function OnboardingCarousel() {
                   Préstamo Descuento de Planilla
                 </h1>
                 <div className="space-y-2 text-center text-amber-800">
-                  <p className="text-sm font-medium animate-in fade-in slide-in-from-left-8 duration-700 delay-200">Simula tus montos y cuotas.</p>
-                  <p className="text-sm font-medium animate-in fade-in slide-in-from-left-8 duration-700 delay-300">Sin aprobadores ni esperas.</p>
-                  <p className="text-sm font-medium animate-in fade-in slide-in-from-left-8 duration-700 delay-400">Recibe tu dinero de inmediato.</p>
+                  <p className="text-lg font-semibold animate-in fade-in slide-in-from-left-8 duration-700 delay-200">Simula tus montos y cuotas.</p>
+                  <p className="text-lg font-semibold animate-in fade-in slide-in-from-left-8 duration-700 delay-300">Sin aprobadores ni esperas.</p>
+                  <p className="text-lg font-semibold animate-in fade-in slide-in-from-left-8 duration-700 delay-400">Recibe tu dinero de inmediato.</p>
                 </div>
               </div>
 
@@ -274,9 +274,9 @@ export function OnboardingCarousel() {
                   Adelanto de Salario
                 </h1>
                 <div className="space-y-2 text-center text-white/90">
-                  <p className="text-sm font-medium animate-in fade-in slide-in-from-right-8 duration-700 delay-200">Adelanta hasta 50% del salario.</p>
-                  <p className="text-sm font-medium animate-in fade-in slide-in-from-right-8 duration-700 delay-300">Sin aprobadores. Solo firmas tú.</p>
-                  <p className="text-sm font-medium animate-in fade-in slide-in-from-right-8 duration-700 delay-400">Recibe tu dinero de inmediato.</p>
+                  <p className="text-lg font-semibold animate-in fade-in slide-in-from-right-8 duration-700 delay-200">Adelanta hasta 50% del salario.</p>
+                  <p className="text-lg font-semibold animate-in fade-in slide-in-from-right-8 duration-700 delay-300">Sin aprobadores. Solo firmas tú.</p>
+                  <p className="text-lg font-semibold animate-in fade-in slide-in-from-right-8 duration-700 delay-400">Recibe tu dinero de inmediato.</p>
                 </div>
               </div>
 
