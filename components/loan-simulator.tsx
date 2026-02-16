@@ -70,15 +70,17 @@ export function LoanSimulator({
 
   const calculations = useMemo(() => {
     const monthlyInterestRate = productType === "adelanto" ? 0 : 0.01
-    const commission = productType === "adelanto" ? amount * 0.015 : amount * 0.02
-    const igv = commission * 0.18
+    const interest = productType === "adelanto" ? 0 : amount * monthlyInterestRate
+    const commission = amount * 0.015 // Comisión 1.5% del monto
+    const igv = amount * 0.18 // IGV 18% del monto
     const totalInterest = productType === "adelanto" ? 0 : amount * monthlyInterestRate * term
-    const totalToPay = amount + commission + igv + totalInterest
+    const totalToPay = amount + interest + commission + igv
     const monthlyPayment = totalToPay / term
     const netAmount = amount // El monto neto siempre es igual al monto solicitado
 
     return {
       monthlyInterestRate: monthlyInterestRate * 100,
+      interest,
       totalInterest,
       commission,
       igv,
@@ -305,17 +307,17 @@ export function LoanSimulator({
                           {calculations.monthlyInterestRate}%
                         </Badge>
                       </div>
-                      <span className="text-sm font-medium">S/ 18.00</span>
+                      <span className="text-sm font-medium">{formatCurrency(calculations.interest)}</span>
                     </div>
 
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-muted-foreground">+ Comisión (1.5%)</span>
-                      <span className="text-sm font-medium">S/ 9.00</span>
+                      <span className="text-sm font-medium">{formatCurrency(calculations.commission)}</span>
                     </div>
 
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-muted-foreground">+ IGV (18%) <span className="text-[10px] text-muted-foreground/70">(Impuesto al gobierno)</span></span>
-                      <span className="text-sm font-medium">S/ 5.40</span>
+                      <span className="text-sm font-medium">{formatCurrency(calculations.igv)}</span>
                     </div>
                   </>
                 )}
@@ -338,7 +340,7 @@ export function LoanSimulator({
 
                 <div className="flex justify-between items-center">
                   <span className="text-sm font-medium text-foreground">Total a descontar</span>
-                  <span className="text-lg font-bold text-primary">S/ 632.40</span>
+                  <span className="text-lg font-bold text-primary">{formatCurrency(calculations.totalToPay)}</span>
                 </div>
 
                 {productType === "prestamo" && (
