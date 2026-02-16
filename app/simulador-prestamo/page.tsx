@@ -51,7 +51,7 @@ function SimuladorPrestamoContent() {
   const searchParams = useSearchParams()
   const productType = (searchParams.get("tipo") as "adelanto" | "prestamo") || "prestamo"
 
-  const baseMaxPercentage = productType === "adelanto" ? 0.4 : 0.5
+  const baseMaxPercentage = productType === "adelanto" ? 0.5 : 0.5
   const frequencyPenalty = mockUser.recentRequestCount > 3 ? 0.2 : 0
   const effectiveMaxPercentage = Math.max(0.1, baseMaxPercentage - frequencyPenalty)
 

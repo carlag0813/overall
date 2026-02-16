@@ -69,10 +69,10 @@ export function LoanSimulator({
   const [scrolledToSummary, setScrolledToSummary] = useState(false)
 
   const calculations = useMemo(() => {
-    const interestRate = productType === "adelanto" ? 0 : 0.03 // 3% del monto
+    const interestRate = productType === "adelanto" ? 0 : 0.03 // 3% del monto para préstamo
     const interest = productType === "adelanto" ? 0 : amount * interestRate
-    const commission = amount * 0.015 // Comisión 1.5% del monto
-    const igv = (interest + commission) * 0.20 // IGV 20% de (Interés + Comisión)
+    const commission = productType === "adelanto" ? amount * 0.05 : amount * 0.015 // Adelanto: 5%, Préstamo: 1.5%
+    const igv = productType === "adelanto" ? (commission * 0.18) : ((interest + commission) * 0.20) // Adelanto: 18% de comisión, Préstamo: 20% de (interés + comisión)
     const totalToPay = amount + interest + commission + igv
     const monthlyPayment = totalToPay / term
     const netAmount = amount // El monto neto siempre es igual al monto solicitado
@@ -323,7 +323,7 @@ export function LoanSimulator({
                 {productType === "adelanto" && (
                   <>
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-muted-foreground">+ Comisión (1.5%)</span>
+                      <span className="text-sm text-muted-foreground">+ Comisión (5%)</span>
                       <span className="text-sm font-medium">{formatCurrency(calculations.commission)}</span>
                     </div>
 
