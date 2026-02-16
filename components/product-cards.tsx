@@ -213,7 +213,7 @@ export function ProductCards({
 
           <div className="flex-1 overflow-y-auto px-4 pb-6">
             <p className="text-sm text-foreground/70 mb-4">
-              Así calculamos tu monto máximo para{" "}
+              Ejemplo de cálculo de Monto Máximo para{" "}
               <span className="font-semibold text-foreground">
                 {breakdownType === "prestamo" ? "Préstamo Personal" : "Adelanto de Salario"}
               </span>
@@ -222,36 +222,24 @@ export function ProductCards({
             <div className="space-y-3 bg-foreground/5 rounded-lg p-4 border border-foreground/10 mb-4">
               <div className="flex justify-between items-center">
                 <span className="text-sm text-foreground/70">Sueldo Neto </span>
-                <span className="font-bold text-foreground">{formatCurrency(netSalary)}</span>
-              </div>
-
-              <div className="flex justify-between items-center">
-                <span className="text-sm text-foreground/70">{"(-) Descuentos de Ley"}</span>
-                <span className="text-sm font-medium text-destructive">{"-" + formatCurrency(legalDeductions)}</span>
+                <span className="font-bold text-foreground">{formatCurrency(1200)}</span>
               </div>
 
               <div className="flex justify-between items-center">
                 <span className="text-sm text-foreground/70">{"(-) Descuentos Judiciales"}</span>
-                <span className="text-sm font-medium text-destructive">{"-" + formatCurrency(judicialDeductions)}</span>
+                <span className="text-sm font-medium text-destructive">-{formatCurrency(150)}</span>
               </div>
 
               <div className="flex justify-between items-center">
-                <span className="text-sm text-foreground/70">{"(-) Descuentos Terceros"}</span>
-                <span className="text-sm font-medium text-destructive">{"-" + formatCurrency(thirdPartyDeductions)}</span>
+                <span className="text-sm text-foreground/70">{"(-) Descuentos de Ley"}</span>
+                <span className="text-sm font-medium text-destructive">-{formatCurrency(80)}</span>
               </div>
 
               <Separator className="my-2" />
 
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-semibold text-foreground">Base disponible</span>
-                <span className="font-bold text-foreground">{formatCurrency(baseAfterDeductions)}</span>
-              </div>
-
-              <div className="flex justify-between items-center text-xs pt-1">
-                <span className="text-foreground/70">
-                  Límite ({breakdownType === "prestamo" ? "50%" : "30%"}) del sueldo neto)
-                </span>
-                <span className="font-semibold text-foreground/70">{formatCurrency(netSalary * limitPercentage)}</span>
+              <div className="flex justify-between items-center text-sm font-semibold pt-2">
+                <span className="text-foreground">Límite ({breakdownType === "prestamo" ? "50%" : "30%"} Sueldo Bruto)</span>
+                <span className="text-foreground">{formatCurrency(600)}</span>
               </div>
 
               <Separator className="my-2" />
@@ -259,15 +247,10 @@ export function ProductCards({
               <div className="flex justify-between items-center pt-2 bg-gradient-to-r from-primary/10 to-primary/5 p-3 rounded-lg">
                 <span className="font-semibold text-foreground">Disponible para solicitud</span>
                 <span className={`text-2xl font-bold ${breakdownType === "prestamo" ? "text-premium" : "text-primary"}`}>
-                  {formatCurrency(availableAmount)}
+                  {formatCurrency(600)}
                 </span>
               </div>
             </div>
-
-            <p className="text-xs text-foreground/60 leading-relaxed">
-              El monto disponible se calcula sobre tu sueldo neto validado por RRHH y no puede exceder el{" "}
-              <span className="font-semibold">{breakdownType === "prestamo" ? "50%" : "30%"}</span> de dicho monto.
-            </p>
           </div>
 
           <DrawerFooter className="border-t">
