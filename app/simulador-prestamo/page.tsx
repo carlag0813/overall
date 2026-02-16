@@ -919,213 +919,211 @@ function SimuladorPrestamoContent() {
             {/* Contenido expandible */}
             {summaryExpanded && (
               <div className="animate-in slide-in-from-top-2 duration-200 space-y-3 mt-4 border-t border-primary/10 pt-4">
-                {/* Solicitarás */}
-                <div className="flex items-start justify-between text-xs gap-2 pb-2 border-b border-primary/10">
-                  <div className="flex-1">
-                    <span className="font-semibold text-foreground">Solicitarás</span>
-                    <p className="text-[10px] text-foreground/70">(monto a recibir)</p>
-                  </div>
-                  <p className="font-bold text-foreground whitespace-nowrap">
-                    {formatCurrency(amount)}
-                  </p>
-                </div>
-
-                {/* Interés */}
-                <div className="flex items-start justify-between text-xs gap-2 pb-2 border-b border-primary/10">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-1">
-                      <span className="font-semibold text-foreground">+ Interés</span>
-                      <TooltipProvider>
-                        <Tooltip>
-                          <TooltipTrigger>
-                            <Info className="h-3 w-3 text-foreground/50 hover:text-primary" />
-                          </TooltipTrigger>
-                          <TooltipContent className="max-w-xs">
-                            <p className="text-xs">
-                              El banco cobra 3% del monto por dejarte usar el dinero.
-                            </p>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
-                    </div>
-                  </div>
-                  <p className="font-bold text-foreground whitespace-nowrap">
-                    {productType === "prestamo" ? formatCurrency(amount * 0.03) : "—"}
-                  </p>
-                </div>
-
-                {/* Comisión - Solo para Préstamo */}
+                {/* PRESTAMO PERSONAL */}
                 {productType === "prestamo" && (
-                  <div className="flex items-start justify-between text-xs gap-2 pb-2 border-b border-primary/10">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-1">
-                        <span className="font-semibold text-foreground">+ Comisión (1.5%)</span>
-                        <TooltipProvider>
-                          <Tooltip>
-                            <TooltipTrigger>
-                              <Info className="h-3 w-3 text-foreground/50 hover:text-primary" />
-                            </TooltipTrigger>
-                            <TooltipContent className="max-w-xs">
-                              <p className="text-xs">
-                                Cobro por la gestión y procesamiento de tu préstamo.
-                              </p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
+                  <>
+                    {/* Solicitarás */}
+                    <div className="flex items-start justify-between text-xs gap-2 pb-2 border-b border-primary/10">
+                      <div className="flex-1">
+                        <span className="font-semibold text-foreground">Solicitarás</span>
+                        <p className="text-[10px] text-foreground/70">(monto a recibir)</p>
+                      </div>
+                      <p className="font-bold text-foreground whitespace-nowrap">
+                        {formatCurrency(amount)}
+                      </p>
+                    </div>
+
+                    {/* Interés */}
+                    <div className="flex items-start justify-between text-xs gap-2 pb-2 border-b border-primary/10">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-1">
+                          <span className="font-semibold text-foreground">+ Interés</span>
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger>
+                                <Info className="h-3 w-3 text-foreground/50 hover:text-primary" />
+                              </TooltipTrigger>
+                              <TooltipContent className="max-w-xs">
+                                <p className="text-xs">
+                                  El banco cobra 3% del monto por dejarte usar el dinero.
+                                </p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </div>
+                      </div>
+                      <p className="font-bold text-foreground whitespace-nowrap">
+                        {formatCurrency(amount * 0.03)}
+                      </p>
+                    </div>
+
+                    {/* Comisión */}
+                    <div className="flex items-start justify-between text-xs gap-2 pb-2 border-b border-primary/10">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-1">
+                          <span className="font-semibold text-foreground">+ Comisión (1.5%)</span>
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger>
+                                <Info className="h-3 w-3 text-foreground/50 hover:text-primary" />
+                              </TooltipTrigger>
+                              <TooltipContent className="max-w-xs">
+                                <p className="text-xs">
+                                  Cobro por la gestión y procesamiento de tu préstamo.
+                                </p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </div>
+                      </div>
+                      <p className="font-bold text-foreground whitespace-nowrap">
+                        {formatCurrency(amount * 0.015)}
+                      </p>
+                    </div>
+
+                    {/* IGV */}
+                    <div className="flex items-start justify-between text-xs gap-2 pb-2 border-b border-primary/10">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-1">
+                          <span className="font-semibold text-foreground">+ IGV (18%)</span>
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger>
+                                <Info className="h-3 w-3 text-foreground/50 hover:text-primary" />
+                              </TooltipTrigger>
+                              <TooltipContent className="max-w-xs">
+                                <p className="text-xs">
+                                  El gobierno cobra impuesto (IGV) sobre intereses y comisión.
+                                </p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </div>
+                        <p className="text-[10px] text-foreground/70">(Impuesto al gobierno)</p>
+                      </div>
+                      <p className="font-bold text-foreground whitespace-nowrap">
+                        {formatCurrency((amount * 0.03 + amount * 0.015) * 0.20)}
+                      </p>
+                    </div>
+
+                    {/* Total a descontar */}
+                    <div className="bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 rounded-lg p-3.5 mt-2">
+                      <p className="text-[10px] text-foreground/70 mb-1.5 font-semibold">Total a descontar</p>
+                      <p className="text-2xl font-bold text-primary">
+                        {formatCurrency(amount + (amount * 0.03) + (amount * 0.015) + ((amount * 0.03 + amount * 0.015) * 0.20))}
+                      </p>
+                    </div>
+
+                    {/* Descuento de quincena */}
+                    <div className="bg-amber-50/50 border border-amber-200/50 rounded-lg p-2.5 flex items-start gap-2">
+                      <span className="text-lg">📅</span>
+                      <div className="flex-1">
+                        <p className="font-semibold text-foreground/90 text-sm">Se descontará automáticamente de la segunda quincena de tu sueldo el día 16/07/2026.</p>
                       </div>
                     </div>
-                    <p className="font-bold text-foreground whitespace-nowrap">
-                      {formatCurrency(amount * 0.015)}
-                    </p>
-                  </div>
+                  </>
                 )}
 
-                {/* IGV (18%) */}
-                {productType === "prestamo" && (
-                  <div className="flex items-start justify-between text-xs gap-2 pb-2 border-b border-primary/10">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-1">
-                        <span className="font-semibold text-foreground">+ IGV (18%)</span>
-                        <TooltipProvider>
-                          <Tooltip>
-                            <TooltipTrigger>
-                              <Info className="h-3 w-3 text-foreground/50 hover:text-primary" />
-                            </TooltipTrigger>
-                            <TooltipContent className="max-w-xs">
-                              <p className="text-xs">
-                                El gobierno cobra impuesto (IGV) sobre intereses y comisión.
-                              </p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
+                {/* ADELANTO DE SALARIO */}
+                {productType === "adelanto" && (
+                  <>
+                    {/* Solicitarás */}
+                    <div className="flex items-start justify-between text-xs gap-2 pb-2 border-b border-primary/10">
+                      <div className="flex-1">
+                        <span className="font-semibold text-foreground">Solicitarás (monto a recibir)</span>
                       </div>
-                      <p className="text-[10px] text-foreground/70">(Impuesto al gobierno)</p>
+                      <p className="font-bold text-foreground whitespace-nowrap">
+                        {formatCurrency(amount)}
+                      </p>
                     </div>
-                    <p className="font-bold text-foreground whitespace-nowrap">
-                      {formatCurrency((amount * 0.03 + amount * 0.015) * 0.20)}
-                    </p>
-                  </div>
-                )}
 
-                {/* Solicitarás (adelanto) */}
-                {productType === "adelanto" && (
-                  <div className="flex items-start justify-between text-xs gap-2 pb-2 border-b border-primary/10">
-                    <div className="flex-1">
-                      <span className="font-semibold text-foreground">Solicitarás (monto a recibir)</span>
+                    {/* Interés - No aplica */}
+                    <div className="flex items-start justify-between text-xs gap-2 pb-2 border-b border-primary/10">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-1">
+                          <span className="font-semibold text-foreground">+ Interés</span>
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger>
+                                <Info className="h-3 w-3 text-foreground/50 hover:text-primary" />
+                              </TooltipTrigger>
+                              <TooltipContent className="max-w-xs">
+                                <p className="text-xs">
+                                  El adelanto de salario no genera intereses adicionales.
+                                </p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </div>
+                      </div>
+                      <p className="font-bold text-foreground whitespace-nowrap">—</p>
                     </div>
-                    <p className="font-bold text-foreground whitespace-nowrap">
-                      {formatCurrency(amount)}
-                    </p>
-                  </div>
-                )}
 
-                {/* Interés - No aplica para adelanto */}
-                {productType === "adelanto" && (
-                  <div className="flex items-start justify-between text-xs gap-2 pb-2 border-b border-primary/10">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-1">
-                        <span className="font-semibold text-foreground">+ Interés</span>
-                        <TooltipProvider>
-                          <Tooltip>
-                            <TooltipTrigger>
-                              <Info className="h-3 w-3 text-foreground/50 hover:text-primary" />
-                            </TooltipTrigger>
-                            <TooltipContent className="max-w-xs">
-                              <p className="text-xs">
-                                El adelanto de salario no genera intereses adicionales.
-                              </p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
+                    {/* Comisión */}
+                    <div className="flex items-start justify-between text-xs gap-2 pb-2 border-b border-primary/10">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-1">
+                          <span className="font-semibold text-foreground">+ Comisión (5%)</span>
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger>
+                                <Info className="h-3 w-3 text-foreground/50 hover:text-primary" />
+                              </TooltipTrigger>
+                              <TooltipContent className="max-w-xs">
+                                <p className="text-xs">
+                                  Cobro por la gestión y procesamiento de tu adelanto.
+                                </p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </div>
+                      </div>
+                      <p className="font-bold text-foreground whitespace-nowrap">
+                        {formatCurrency(amount * 0.05)}
+                      </p>
+                    </div>
+
+                    {/* IGV */}
+                    <div className="flex items-start justify-between text-xs gap-2 pb-2 border-b border-primary/10">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-1">
+                          <span className="font-semibold text-foreground">+ IGV (18%)</span>
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger>
+                                <Info className="h-3 w-3 text-foreground/50 hover:text-primary" />
+                              </TooltipTrigger>
+                              <TooltipContent className="max-w-xs">
+                                <p className="text-xs">
+                                  El gobierno cobra impuesto (IGV) sobre la comisión.
+                                </p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </div>
+                        <p className="text-[10px] text-foreground/70">(Impuesto al gobierno)</p>
+                      </div>
+                      <p className="font-bold text-foreground whitespace-nowrap">
+                        {formatCurrency((amount * 0.05) * 0.18)}
+                      </p>
+                    </div>
+
+                    {/* Total a descontar */}
+                    <div className="bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 rounded-lg p-3.5 mt-2">
+                      <p className="text-[10px] text-foreground/70 mb-1.5 font-semibold">Total a descontar</p>
+                      <p className="text-2xl font-bold text-primary">
+                        {formatCurrency(amount + (amount * 0.05) + ((amount * 0.05) * 0.18))}
+                      </p>
+                    </div>
+
+                    {/* Descuento de quincena */}
+                    <div className="bg-blue-50/50 border border-blue-200/50 rounded-lg p-2.5 flex items-start gap-2">
+                      <span className="text-lg">📅</span>
+                      <div className="flex-1">
+                        <p className="font-semibold text-foreground/90 text-sm">Se descontará automáticamente de la segunda quincena de tu sueldo el día 16/07/2026.</p>
                       </div>
                     </div>
-                    <p className="font-bold text-foreground whitespace-nowrap">—</p>
-                  </div>
-                )}
-
-                {/* Comisión - Solo para Adelanto */}
-                {productType === "adelanto" && (
-                  <div className="flex items-start justify-between text-xs gap-2 pb-2 border-b border-primary/10">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-1">
-                        <span className="font-semibold text-foreground">+ Comisión (5%)</span>
-                        <TooltipProvider>
-                          <Tooltip>
-                            <TooltipTrigger>
-                              <Info className="h-3 w-3 text-foreground/50 hover:text-primary" />
-                            </TooltipTrigger>
-                            <TooltipContent className="max-w-xs">
-                              <p className="text-xs">
-                                Cobro por la gestión y procesamiento de tu adelanto.
-                              </p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
-                      </div>
-                    </div>
-                    <p className="font-bold text-foreground whitespace-nowrap">
-                      {formatCurrency(amount * 0.05)}
-                    </p>
-                  </div>
-                )}
-
-                {/* IGV - Para adelanto */}
-                {productType === "adelanto" && (
-                  <div className="flex items-start justify-between text-xs gap-2 pb-2 border-b border-primary/10">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-1">
-                        <span className="font-semibold text-foreground">+ IGV (18%)</span>
-                        <TooltipProvider>
-                          <Tooltip>
-                            <TooltipTrigger>
-                              <Info className="h-3 w-3 text-foreground/50 hover:text-primary" />
-                            </TooltipTrigger>
-                            <TooltipContent className="max-w-xs">
-                              <p className="text-xs">
-                                El gobierno cobra impuesto (IGV) sobre la comisión.
-                              </p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
-                      </div>
-                      <p className="text-[10px] text-foreground/70">(Impuesto al gobierno)</p>
-                    </div>
-                    <p className="font-bold text-foreground whitespace-nowrap">
-                      {formatCurrency((amount * 0.05) * 0.18)}
-                    </p>
-                  </div>
-                )}
-
-                {/* Total a descontar - DESTACADO */}
-                <div className="bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 rounded-lg p-3.5 mt-2">
-                  <p className="text-[10px] text-foreground/70 mb-1.5 font-semibold">Total a descontar</p>
-                  <p className="text-2xl font-bold text-primary">
-                    {productType === "prestamo"
-                      ? formatCurrency(amount + (amount * 0.03) + (amount * 0.015) + ((amount * 0.03 + amount * 0.015) * 0.20))
-                      : formatCurrency(amount + (amount * 0.05) + ((amount * 0.05) * 0.18))}
-                  </p>
-                </div>
-
-                {/* Descuento de quincena */}
-                {productType === "prestamo" && (
-                  <div className="bg-amber-50/50 border border-amber-200/50 rounded-lg p-2.5 flex items-start gap-2">
-                    <span className="text-lg">📅</span>
-                    <div className="flex-1">
-                      <p className="font-semibold text-foreground/90 text-sm">Se descontará automáticamente de la segunda quincena de tu sueldo el día 16/07/2026.  </p>
-                      
-                    </div>
-                  </div>
-                )}
-
-                {/* Descuento de quincena - Adelanto */}
-                {productType === "adelanto" && (
-                  <div className="bg-blue-50/50 border border-blue-200/50 rounded-lg p-2.5 flex items-start gap-2">
-                    <span className="text-lg">📅</span>
-                    <div className="flex-1">
-                      <p className="font-semibold text-foreground/90 text-sm">Se descontará automáticamente de la segunda quincena de tu sueldo el día 16/07/2026.</p>
-                      
-                    </div>
-                  </div>
+                  </>
                 )}
               </div>
             )}
