@@ -86,7 +86,7 @@ export function ProductCards({
         >
           <div className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 rounded-2xl p-4 md:p-5 aspect-square flex flex-col items-center justify-center gap-3 border border-amber-700/30 shadow-xl"
           >
-            <div className="p-3 md:p-3.5 rounded-xl bg-white/20 shadow-lg backdrop-blur-sm">
+            <div className="p-3 md:p-3.5 rounded-xl bg-amber-800 shadow-lg">
               <Zap className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
             </div>
             <div className="text-center">
@@ -106,7 +106,7 @@ export function ProductCards({
         >
           <div className="bg-gradient-to-br from-teal-400 via-teal-500 to-cyan-600 rounded-2xl p-4 md:p-5 aspect-square flex flex-col items-center justify-center gap-3 border border-teal-700/30 shadow-xl"
           >
-            <div className="p-3 md:p-3.5 rounded-xl bg-white/20 shadow-lg backdrop-blur-sm">
+            <div className="p-3 md:p-3.5 rounded-xl bg-teal-800 shadow-lg">
               <BarChart3 className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
             </div>
             <div className="text-center">
