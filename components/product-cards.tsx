@@ -84,17 +84,17 @@ export function ProductCards({
           onClick={() => handleProductClick("prestamo")}
           className="group relative"
         >
-          <div className="bg-gradient-to-br from-amber-500/20 to-amber-600/10 rounded-2xl p-4 md:p-5 aspect-square flex flex-col items-center justify-center gap-3 border border-amber-200/50 hover:border-amber-300/70 hover:shadow-lg hover:shadow-amber-500/10 transition-all duration-300 hover:-translate-y-1"
+          <div className="bg-gradient-to-br from-amber-500/20 to-amber-600/10 rounded-2xl p-4 md:p-5 aspect-square flex flex-col items-center justify-center gap-3 border border-amber-200/50"
           >
             <div className="p-3 md:p-3.5 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 shadow-lg">
-              <Zap className="h-5 w-5 md:h-6 md:w-6 text-white" />
+              <Zap className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
             </div>
             <div className="text-center">
               <p className="font-bold text-sm md:text-base text-foreground leading-tight">Préstamo</p>
               <p className="text-xs text-foreground/60 font-medium">Personal</p>
             </div>
             <div className="text-center pt-1">
-              <p className="text-lg md:text-xl font-bold text-amber-600">{formatCurrency(personalLoanAmount)}</p>
+              <p className="text-xl md:text-2xl font-bold text-amber-600">{formatCurrency(personalLoanAmount)}</p>
             </div>
           </div>
         </button>
@@ -104,27 +104,27 @@ export function ProductCards({
           onClick={() => handleProductClick("adelanto")}
           className="group relative"
         >
-          <div className="bg-gradient-to-br from-cyan-500/20 to-teal-600/10 rounded-2xl p-4 md:p-5 aspect-square flex flex-col items-center justify-center gap-3 border border-cyan-200/50 hover:border-cyan-300/70 hover:shadow-lg hover:shadow-cyan-500/10 transition-all duration-300 hover:-translate-y-1"
+          <div className="bg-gradient-to-br from-cyan-500/20 to-teal-600/10 rounded-2xl p-4 md:p-5 aspect-square flex flex-col items-center justify-center gap-3 border border-cyan-200/50"
           >
             <div className="p-3 md:p-3.5 rounded-xl bg-gradient-to-br from-cyan-500 to-teal-600 shadow-lg">
-              <BarChart3 className="h-5 w-5 md:h-6 md:w-6 text-white" />
+              <BarChart3 className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
             </div>
             <div className="text-center">
               <p className="font-bold text-sm md:text-base text-foreground leading-tight">Adelanto</p>
               <p className="text-xs text-foreground/60 font-medium">de Salario</p>
             </div>
             <div className="text-center pt-1">
-              <p className="text-lg md:text-xl font-bold text-cyan-600">{formatCurrency(salaryAdvanceAmount)}</p>
+              <p className="text-xl md:text-2xl font-bold text-cyan-600">{formatCurrency(salaryAdvanceAmount)}</p>
             </div>
           </div>
         </button>
 
         {/* Mis Operaciones */}
         <Link href="/mi-historial" className="group">
-          <div className="bg-gradient-to-br from-blue-500/20 to-indigo-600/10 rounded-2xl p-4 md:p-5 aspect-square flex flex-col items-center justify-center gap-3 border border-blue-200/50 hover:border-blue-300/70 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 hover:-translate-y-1"
+          <div className="bg-gradient-to-br from-blue-500/20 to-indigo-600/10 rounded-2xl p-4 md:p-5 aspect-square flex flex-col items-center justify-center gap-3 border border-blue-200/50"
           >
             <div className="p-3 md:p-3.5 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg">
-              <ClipboardCheck className="h-5 w-5 md:h-6 md:w-6 text-white" />
+              <ClipboardCheck className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
             </div>
             <div className="text-center">
               <p className="font-bold text-sm md:text-base text-foreground leading-tight">Mis</p>
@@ -141,10 +141,10 @@ export function ProductCards({
           }}
           className="group"
         >
-          <div className="bg-gradient-to-br from-emerald-500/20 to-green-600/10 rounded-2xl p-4 md:p-5 aspect-square flex flex-col items-center justify-center gap-3 border border-emerald-200/50 hover:border-emerald-300/70 hover:shadow-lg hover:shadow-emerald-500/10 transition-all duration-300 hover:-translate-y-1"
+          <div className="bg-gradient-to-br from-emerald-500/20 to-green-600/10 rounded-2xl p-4 md:p-5 aspect-square flex flex-col items-center justify-center gap-3 border border-emerald-200/50"
           >
             <div className="p-3 md:p-3.5 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 shadow-lg">
-              <HelpCircle className="h-5 w-5 md:h-6 md:w-6 text-white" />
+              <HelpCircle className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
             </div>
             <div className="text-center">
               <p className="font-bold text-sm md:text-base text-foreground leading-tight">Ayuda</p>
