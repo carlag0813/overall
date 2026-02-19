@@ -63,7 +63,7 @@ export function ProductCards({
   const limitPercentage = breakdownType === "prestamo" ? 0.5 : 0.3
 
   return (
-    <section className="space-y-3">
+    <section className="space-y-2">
       {/* Header con saludo en una sola línea */}
       <div className="flex items-center gap-2 md:gap-3 px-1 animate-in fade-in slide-in-from-top-2 duration-500 delay-150">
         <span className="text-3xl md:text-4xl flex-shrink-0">👋</span>
@@ -77,7 +77,7 @@ export function ProductCards({
           onClick={() => handleProductClick("prestamo")}
           className="group relative"
         >
-          <div className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 rounded-2xl p-3 md:p-4 aspect-square flex flex-col items-center justify-center gap-2 border border-amber-700/30 shadow-xl"
+          <div className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 rounded-2xl p-3 md:p-4 h-32 md:h-36 flex flex-col items-center justify-center gap-1.5 border border-amber-700/30 shadow-xl"
           >
             <div className="p-3 md:p-3.5 rounded-xl bg-amber-800 shadow-lg">
               <Zap className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
@@ -97,7 +97,7 @@ export function ProductCards({
           onClick={() => handleProductClick("adelanto")}
           className="group relative"
         >
-          <div className="bg-gradient-to-br from-teal-400 via-teal-500 to-cyan-600 rounded-2xl p-3 md:p-4 aspect-square flex flex-col items-center justify-center gap-2 border border-teal-700/30 shadow-xl"
+          <div className="bg-gradient-to-br from-teal-400 via-teal-500 to-cyan-600 rounded-2xl p-3 md:p-4 h-32 md:h-36 flex flex-col items-center justify-center gap-1.5 border border-teal-700/30 shadow-xl"
           >
             <div className="p-3 md:p-3.5 rounded-xl bg-teal-800 shadow-lg">
               <BarChart3 className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
@@ -114,7 +114,7 @@ export function ProductCards({
 
         {/* Mis Operaciones */}
         <Link href="/mi-historial" className="group">
-          <div className="bg-gradient-to-br from-blue-500/20 to-indigo-600/10 rounded-2xl p-3 md:p-4 aspect-square flex flex-col items-center justify-center gap-2 border border-blue-200/50"
+          <div className="bg-gradient-to-br from-blue-500/20 to-indigo-600/10 rounded-2xl p-3 md:p-4 h-32 md:h-36 flex flex-col items-center justify-center gap-1.5 border border-blue-200/50"
           >
             <div className="p-3 md:p-3.5 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg">
               <ClipboardCheck className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
@@ -134,7 +134,7 @@ export function ProductCards({
           }}
           className="group"
         >
-          <div className="bg-gradient-to-br from-emerald-500/20 to-green-600/10 rounded-2xl p-3 md:p-4 aspect-square flex flex-col items-center justify-center gap-2 border border-emerald-200/50"
+          <div className="bg-gradient-to-br from-emerald-500/20 to-green-600/10 rounded-2xl p-3 md:p-4 h-32 md:h-36 flex flex-col items-center justify-center gap-1.5 border border-emerald-200/50"
           >
             <div className="p-3 md:p-3.5 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 shadow-lg">
               <HelpCircle className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
