@@ -8,7 +8,7 @@ import { DrawerHeader } from "@/components/ui/drawer"
 import { DrawerContent } from "@/components/ui/drawer"
 import { Drawer } from "@/components/ui/drawer"
 import { useState } from "react"
-import { Heart, Copy, ClipboardCheck, Eye, ChevronRight, Zap, HelpCircle, BarChart3 } from "lucide-react"
+import { Heart, Copy, ClipboardCheck, Eye, ChevronRight, Zap, HelpCircle, BarChart3, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -77,7 +77,7 @@ export function ProductCards({
           onClick={() => handleProductClick("prestamo")}
           className="group relative"
         >
-          <div className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 rounded-2xl h-32 md:h-36 flex flex-col items-center justify-center gap-1.5 border border-amber-700/30 shadow-xl"
+          <div className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 rounded-2xl h-32 md:h-36 flex flex-col items-center justify-center gap-1.5 border border-amber-700/30 shadow-xl relative overflow-hidden"
           >
             <div className="p-3 md:p-3.5 rounded-xl bg-amber-800 shadow-lg">
               <Zap className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
@@ -89,6 +89,11 @@ export function ProductCards({
             <div className="text-center pt-1">
               <p className="text-xl md:text-2xl font-bold text-white drop-shadow-lg">{formatCurrency(personalLoanAmount)}</p>
             </div>
+            
+            {/* Botón de flecha flotante */}
+            <div className="absolute bottom-2 right-2 p-2 bg-white/20 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-y-0 translate-y-1">
+              <ArrowRight className="h-4 w-4 text-white" />
+            </div>
           </div>
         </button>
 
@@ -97,7 +102,7 @@ export function ProductCards({
           onClick={() => handleProductClick("adelanto")}
           className="group relative"
         >
-          <div className="bg-gradient-to-br from-teal-400 via-teal-500 to-cyan-600 rounded-2xl h-32 md:h-36 flex flex-col items-center justify-center gap-1.5 border border-teal-700/30 shadow-xl"
+          <div className="bg-gradient-to-br from-teal-400 via-teal-500 to-cyan-600 rounded-2xl h-32 md:h-36 flex flex-col items-center justify-center gap-1.5 border border-teal-700/30 shadow-xl relative overflow-hidden"
           >
             <div className="p-3 md:p-3.5 rounded-xl bg-teal-800 shadow-lg">
               <BarChart3 className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
@@ -109,12 +114,17 @@ export function ProductCards({
             <div className="text-center pt-1">
               <p className="text-xl md:text-2xl font-bold text-white drop-shadow-lg">{formatCurrency(salaryAdvanceAmount)}</p>
             </div>
+            
+            {/* Botón de flecha flotante */}
+            <div className="absolute bottom-2 right-2 p-2 bg-white/20 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-y-0 translate-y-1">
+              <ArrowRight className="h-4 w-4 text-white" />
+            </div>
           </div>
         </button>
 
         {/* Mis Operaciones */}
         <Link href="/mi-historial" className="group">
-          <div className="bg-gradient-to-br from-blue-500/20 to-indigo-600/10 rounded-2xl h-32 md:h-36 flex flex-col items-center justify-center gap-1.5 border border-blue-200/50"
+          <div className="bg-gradient-to-br from-blue-500/20 to-indigo-600/10 rounded-2xl h-32 md:h-36 flex flex-col items-center justify-center gap-1.5 border border-blue-200/50 relative overflow-hidden"
           >
             <div className="p-3 md:p-3.5 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg">
               <ClipboardCheck className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
@@ -123,18 +133,22 @@ export function ProductCards({
               <p className="font-bold text-sm md:text-base text-foreground leading-tight">Mis</p>
               <p className="text-xs text-foreground/60 font-medium">Operaciones</p>
             </div>
+            
+            {/* Botón de flecha flotante */}
+            <div className="absolute bottom-2 right-2 p-2 bg-blue-500/20 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-y-0 translate-y-1">
+              <ArrowRight className="h-4 w-4 text-blue-600" />
+            </div>
           </div>
         </Link>
 
         {/* Ayuda / FAQ */}
         <button
           onClick={() => {
-            // Simular click en el componente FAQ
             document.querySelector('[title="Preguntas frecuentes"]')?.dispatchEvent(new Event('click', { bubbles: true }))
           }}
           className="group"
         >
-          <div className="bg-gradient-to-br from-emerald-500/20 to-green-600/10 rounded-2xl h-32 md:h-36 flex flex-col items-center justify-center gap-1.5 border border-emerald-200/50"
+          <div className="bg-gradient-to-br from-emerald-500/20 to-green-600/10 rounded-2xl h-32 md:h-36 flex flex-col items-center justify-center gap-1.5 border border-emerald-200/50 relative overflow-hidden"
           >
             <div className="p-3 md:p-3.5 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 shadow-lg">
               <HelpCircle className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
@@ -143,12 +157,17 @@ export function ProductCards({
               <p className="font-bold text-sm md:text-base text-foreground leading-tight">Ayuda</p>
               <p className="text-xs text-foreground/60 font-medium">FAQ</p>
             </div>
+            
+            {/* Botón de flecha flotante */}
+            <div className="absolute bottom-2 right-2 p-2 bg-emerald-500/20 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-y-0 translate-y-1">
+              <ArrowRight className="h-4 w-4 text-emerald-600" />
+            </div>
           </div>
         </button>
       </div>
 
       {/* Banner Carousel */}
-      <div className="mt-5 md:mt-6 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-300">
+      <div className="mt-7 md:mt-8 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-300">
         <HomeBannerCarousel />
       </div>
 
