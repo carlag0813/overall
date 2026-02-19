@@ -76,7 +76,7 @@ export function HomeBannerCarousel() {
       <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl overflow-hidden shadow-lg border border-primary/20">
         <div className="flex items-center justify-between h-40 md:h-48 px-4 md:px-6 gap-4">
           {/* Imagen a la izquierda con animación */}
-          <div className={`flex-shrink-0 w-40 h-40 md:w-48 md:h-48 rounded-2xl overflow-hidden bg-primary/10 shadow-lg transition-all duration-300 ${
+          <div className={`flex-shrink-0 w-40 h-40 md:w-48 md:h-48 rounded-2xl overflow-hidden bg-primary/10 shadow-lg transition-all duration-300 -ml-4 md:-ml-6 ${
             isTransitioning ? "opacity-50 scale-95" : "opacity-100 scale-100"
           }`}>
             <img
