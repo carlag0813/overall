@@ -14,21 +14,21 @@ interface Banner {
 const banners: Banner[] = [
   {
     id: 1,
-    title: "Préstamos sin complicaciones",
-    description: "Acceso a crédito rápido con tasas competitivas. Simula y obtén tu dinero en minutos.",
-    image: "https://images.unsplash.com/photo-1579621970563-ebec5855cfb3?w=400&h=400&fit=crop",
+    title: "Préstamo Aprobado",
+    description: "Acceso a crédito rápido sin complicaciones. Obtén las llaves a tu futuro en minutos.",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Feb%2019%2C%202026%2C%2005_07_24%20PM-T3HT2z03L1JG0kTuhBxGAxpYCqQvTA.png",
   },
   {
     id: 2,
-    title: "Adelanta tu salario",
-    description: "No esperes hasta fin de mes. Accede a parte de tu salario cuando lo necesites.",
-    image: "https://images.unsplash.com/photo-1533995405776-24667b8c5f0a?w=400&h=400&fit=crop",
+    title: "Tu Familia Segura",
+    description: "Protege a los tuyos con crédito flexible. Adelanta salario para esos momentos importantes.",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Feb%2019%2C%202026%2C%2005_12_52%20PM-eK3ydxodR9rTou2hNjHHFzHlYgX435.png",
   },
   {
     id: 3,
-    title: "Gestiona tus finanzas",
-    description: "Visualiza todas tus operaciones en un solo lugar. Control total de tus créditos.",
-    image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=400&h=400&fit=crop",
+    title: "Confianza Generacional",
+    description: "Acceso a crédito para todas las edades. Servicios financieros diseñados para ti.",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Feb%2019%2C%202026%2C%2005_09_31%20PM-mkMEymimVN0hro6IYh1TVRnjUbEqCx.png",
   },
 ]
 
