@@ -77,7 +77,7 @@ export function ProductCards({
           onClick={() => handleProductClick("prestamo")}
           className="group relative"
         >
-          <div className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 rounded-2xl p-3 md:p-4 h-32 md:h-36 flex flex-col items-center justify-center gap-1.5 border border-amber-700/30 shadow-xl"
+          <div className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 rounded-2xl h-32 md:h-36 flex flex-col items-center justify-center gap-1.5 border border-amber-700/30 shadow-xl"
           >
             <div className="p-3 md:p-3.5 rounded-xl bg-amber-800 shadow-lg">
               <Zap className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
@@ -97,7 +97,7 @@ export function ProductCards({
           onClick={() => handleProductClick("adelanto")}
           className="group relative"
         >
-          <div className="bg-gradient-to-br from-teal-400 via-teal-500 to-cyan-600 rounded-2xl p-3 md:p-4 h-32 md:h-36 flex flex-col items-center justify-center gap-1.5 border border-teal-700/30 shadow-xl"
+          <div className="bg-gradient-to-br from-teal-400 via-teal-500 to-cyan-600 rounded-2xl h-32 md:h-36 flex flex-col items-center justify-center gap-1.5 border border-teal-700/30 shadow-xl"
           >
             <div className="p-3 md:p-3.5 rounded-xl bg-teal-800 shadow-lg">
               <BarChart3 className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
@@ -114,7 +114,7 @@ export function ProductCards({
 
         {/* Mis Operaciones */}
         <Link href="/mi-historial" className="group">
-          <div className="bg-gradient-to-br from-blue-500/20 to-indigo-600/10 rounded-2xl p-3 md:p-4 h-32 md:h-36 flex flex-col items-center justify-center gap-1.5 border border-blue-200/50"
+          <div className="bg-gradient-to-br from-blue-500/20 to-indigo-600/10 rounded-2xl h-32 md:h-36 flex flex-col items-center justify-center gap-1.5 border border-blue-200/50"
           >
             <div className="p-3 md:p-3.5 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg">
               <ClipboardCheck className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
@@ -134,7 +134,7 @@ export function ProductCards({
           }}
           className="group"
         >
-          <div className="bg-gradient-to-br from-emerald-500/20 to-green-600/10 rounded-2xl p-3 md:p-4 h-32 md:h-36 flex flex-col items-center justify-center gap-1.5 border border-emerald-200/50"
+          <div className="bg-gradient-to-br from-emerald-500/20 to-green-600/10 rounded-2xl h-32 md:h-36 flex flex-col items-center justify-center gap-1.5 border border-emerald-200/50"
           >
             <div className="p-3 md:p-3.5 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 shadow-lg">
               <HelpCircle className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
@@ -148,7 +148,7 @@ export function ProductCards({
       </div>
 
       {/* Banner Carousel */}
-      <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 delay-300">
+      <div className="mt-5 md:mt-6 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-300">
         <HomeBannerCarousel />
       </div>
 
