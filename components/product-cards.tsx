@@ -65,7 +65,7 @@ export function ProductCards({
   return (
     <section className="space-y-2">
       {/* Header con saludo en una sola línea */}
-      <div className="flex items-center gap-2 md:gap-3 px-1 animate-in fade-in slide-in-from-top-2 duration-500 delay-150">
+      <div className="flex items-center gap-2 md:gap-3 px-1 mb-2 animate-in fade-in slide-in-from-top-2 duration-500 delay-150">
         <span className="text-3xl md:text-4xl flex-shrink-0">👋</span>
         <p className="font-bold text-lg md:text-xl text-foreground">¡Hola Carlos! <span className="font-semibold text-foreground/80">Acceso rápido a tus servicios</span></p>
       </div>
