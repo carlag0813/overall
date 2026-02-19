@@ -79,7 +79,7 @@ export function ProductCards({
         >
           <div className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 rounded-2xl h-36 md:h-40 px-3 md:px-4 py-2 md:py-2.5 flex flex-col items-center justify-center gap-1.5 border border-amber-700/30 shadow-xl relative overflow-hidden"
           >
-            <div className="p-3 md:p-3.5 rounded-xl bg-amber-800 shadow-lg">
+            <div className="p-4 md:p-5 rounded-full bg-amber-800 shadow-lg w-fit">
               <Zap className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
             </div>
             <div className="text-center">
@@ -104,7 +104,7 @@ export function ProductCards({
         >
           <div className="bg-gradient-to-br from-teal-400 via-teal-500 to-cyan-600 rounded-2xl h-36 md:h-40 px-3 md:px-4 py-2 md:py-2.5 flex flex-col items-center justify-center gap-1.5 border border-teal-700/30 shadow-xl relative overflow-hidden"
           >
-            <div className="p-3 md:p-3.5 rounded-xl bg-teal-800 shadow-lg">
+            <div className="p-4 md:p-5 rounded-full bg-teal-800 shadow-lg w-fit">
               <BarChart3 className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
             </div>
             <div className="text-center">
@@ -126,7 +126,7 @@ export function ProductCards({
         <Link href="/mi-historial" className="group">
           <div className="bg-gradient-to-br from-blue-500/20 to-indigo-600/10 rounded-2xl h-32 md:h-36 flex flex-col items-center justify-center gap-1.5 border border-blue-200/50 relative overflow-hidden"
           >
-            <div className="p-3 md:p-3.5 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg">
+            <div className="p-4 md:p-5 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg w-fit">
               <ClipboardCheck className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
             </div>
             <div className="text-center">
@@ -150,7 +150,7 @@ export function ProductCards({
         >
           <div className="bg-gradient-to-br from-emerald-500/20 to-green-600/10 rounded-2xl h-32 md:h-36 flex flex-col items-center justify-center gap-1.5 border border-emerald-200/50 relative overflow-hidden"
           >
-            <div className="p-3 md:p-3.5 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 shadow-lg">
+            <div className="p-4 md:p-5 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 shadow-lg w-fit">
               <HelpCircle className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
             </div>
             <div className="text-center">
