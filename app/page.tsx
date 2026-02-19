@@ -75,7 +75,7 @@ export default function PreApprovedOfferPage() {
   const unreadNotifications = 2
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col">
       <UserHeader 
         userName={mockUser.name} 
         employeeId={mockUser.employeeId} 
@@ -83,7 +83,7 @@ export default function PreApprovedOfferPage() {
         className={showContent ? "animate-in fade-in slide-in-from-top-4 duration-700" : "hidden"}
       />
 
-      <main className={`px-4 pb-8 ${showContent ? "animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150" : "hidden"}`}>
+      <main className={`flex-1 px-4 py-5 ${showContent ? "animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150" : "hidden"} flex flex-col overflow-y-auto max-h-[calc(100vh-120px)]`}>
         <ProductCards
           salaryAdvanceAmount={salaryAdvanceAmount}
           personalLoanAmount={personalLoanAmount}
@@ -91,13 +91,6 @@ export default function PreApprovedOfferPage() {
           legalDeductions={mockUser.legalDeductions}
           judicialDeductions={mockUser.judicialDeductions}
           thirdPartyDeductions={mockUser.thirdPartyDeductions}
-        />
-
-        <AccountSummary
-          pendingPayment={pendingPayment}
-          pendingReceivable={pendingReceivable}
-          activeLoans={mockUser.activeLoans}
-          accumulatedNet={mockUser.accumulatedNet}
         />
       </main>
 
