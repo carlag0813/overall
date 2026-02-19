@@ -63,28 +63,21 @@ export function ProductCards({
   const limitPercentage = breakdownType === "prestamo" ? 0.5 : 0.3
 
   return (
-    <section className="space-y-6">
-      {/* Header con saludo e iconos de historial y FAQ */}
-      <div className="flex items-center justify-between gap-3 md:gap-4 px-1 animate-in fade-in slide-in-from-top-2 duration-500 delay-150">
-        <div className="flex items-center gap-2 md:gap-3 flex-1 min-w-0">
-          <span className="text-3xl md:text-4xl flex-shrink-0">👋</span>
-          <div className="flex-1 min-w-0">
-            <h2 className="text-lg md:text-xl font-bold text-foreground">¡Hola Carlos!</h2>
-            <p className="font-semibold text-foreground leading-tight text-xs md:text-sm">
-              Acceso rápido a tus servicios
-            </p>
-          </div>
-        </div>
+    <section className="space-y-3">
+      {/* Header con saludo en una sola línea */}
+      <div className="flex items-center gap-2 md:gap-3 px-1 animate-in fade-in slide-in-from-top-2 duration-500 delay-150">
+        <span className="text-3xl md:text-4xl flex-shrink-0">👋</span>
+        <p className="font-bold text-lg md:text-xl text-foreground">¡Hola Carlos! <span className="font-semibold text-foreground/80">Acceso rápido a tus servicios</span></p>
       </div>
 
       {/* Grilla de 4 accesos rápidos - Estilo Yape */}
-      <div className="grid grid-cols-2 gap-3 md:gap-4 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-200">
+      <div className="grid grid-cols-2 gap-2 md:gap-3 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-200">
         {/* Préstamo Personal - Más prominente */}
         <button
           onClick={() => handleProductClick("prestamo")}
           className="group relative"
         >
-          <div className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 rounded-2xl p-4 md:p-5 aspect-square flex flex-col items-center justify-center gap-3 border border-amber-700/30 shadow-xl"
+          <div className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 rounded-2xl p-3 md:p-4 aspect-square flex flex-col items-center justify-center gap-2 border border-amber-700/30 shadow-xl"
           >
             <div className="p-3 md:p-3.5 rounded-xl bg-amber-800 shadow-lg">
               <Zap className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
@@ -104,7 +97,7 @@ export function ProductCards({
           onClick={() => handleProductClick("adelanto")}
           className="group relative"
         >
-          <div className="bg-gradient-to-br from-teal-400 via-teal-500 to-cyan-600 rounded-2xl p-4 md:p-5 aspect-square flex flex-col items-center justify-center gap-3 border border-teal-700/30 shadow-xl"
+          <div className="bg-gradient-to-br from-teal-400 via-teal-500 to-cyan-600 rounded-2xl p-3 md:p-4 aspect-square flex flex-col items-center justify-center gap-2 border border-teal-700/30 shadow-xl"
           >
             <div className="p-3 md:p-3.5 rounded-xl bg-teal-800 shadow-lg">
               <BarChart3 className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
@@ -121,7 +114,7 @@ export function ProductCards({
 
         {/* Mis Operaciones */}
         <Link href="/mi-historial" className="group">
-          <div className="bg-gradient-to-br from-blue-500/20 to-indigo-600/10 rounded-2xl p-4 md:p-5 aspect-square flex flex-col items-center justify-center gap-3 border border-blue-200/50"
+          <div className="bg-gradient-to-br from-blue-500/20 to-indigo-600/10 rounded-2xl p-3 md:p-4 aspect-square flex flex-col items-center justify-center gap-2 border border-blue-200/50"
           >
             <div className="p-3 md:p-3.5 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg">
               <ClipboardCheck className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
@@ -141,7 +134,7 @@ export function ProductCards({
           }}
           className="group"
         >
-          <div className="bg-gradient-to-br from-emerald-500/20 to-green-600/10 rounded-2xl p-4 md:p-5 aspect-square flex flex-col items-center justify-center gap-3 border border-emerald-200/50"
+          <div className="bg-gradient-to-br from-emerald-500/20 to-green-600/10 rounded-2xl p-3 md:p-4 aspect-square flex flex-col items-center justify-center gap-2 border border-emerald-200/50"
           >
             <div className="p-3 md:p-3.5 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 shadow-lg">
               <HelpCircle className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
