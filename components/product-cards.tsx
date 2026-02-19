@@ -77,7 +77,7 @@ export function ProductCards({
           onClick={() => handleProductClick("prestamo")}
           className="group relative"
         >
-          <div className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 rounded-2xl h-32 md:h-36 px-3 md:px-4 py-2 md:py-2.5 flex flex-col items-center justify-center gap-1.5 border border-amber-700/30 shadow-xl relative overflow-hidden"
+          <div className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 rounded-2xl h-40 md:h-44 px-3 md:px-4 py-2 md:py-2.5 flex flex-col items-center justify-center gap-1.5 border border-amber-700/30 shadow-xl relative overflow-hidden"
           >
             <div className="p-3 md:p-3.5 rounded-xl bg-amber-800 shadow-lg">
               <Zap className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
@@ -91,7 +91,7 @@ export function ProductCards({
             </div>
             
             {/* Botón de flecha flotante */}
-            <div className="absolute bottom-3 right-3 p-2 bg-white/20 rounded-full animate-float">
+            <div className="absolute top-1/2 right-3 -translate-y-1/2 p-2 bg-white/20 rounded-full animate-float">
               <ArrowRight className="h-4 w-4 text-white" />
             </div>
           </div>
@@ -102,7 +102,7 @@ export function ProductCards({
           onClick={() => handleProductClick("adelanto")}
           className="group relative"
         >
-          <div className="bg-gradient-to-br from-teal-400 via-teal-500 to-cyan-600 rounded-2xl h-32 md:h-36 px-3 md:px-4 py-2 md:py-2.5 flex flex-col items-center justify-center gap-1.5 border border-teal-700/30 shadow-xl relative overflow-hidden"
+          <div className="bg-gradient-to-br from-teal-400 via-teal-500 to-cyan-600 rounded-2xl h-40 md:h-44 px-3 md:px-4 py-2 md:py-2.5 flex flex-col items-center justify-center gap-1.5 border border-teal-700/30 shadow-xl relative overflow-hidden"
           >
             <div className="p-3 md:p-3.5 rounded-xl bg-teal-800 shadow-lg">
               <BarChart3 className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
@@ -116,7 +116,7 @@ export function ProductCards({
             </div>
             
             {/* Botón de flecha flotante */}
-            <div className="absolute bottom-3 right-3 p-2 bg-white/20 rounded-full animate-float">
+            <div className="absolute top-1/2 right-3 -translate-y-1/2 p-2 bg-white/20 rounded-full animate-float">
               <ArrowRight className="h-4 w-4 text-white" />
             </div>
           </div>
@@ -135,7 +135,7 @@ export function ProductCards({
             </div>
             
             {/* Botón de flecha flotante */}
-            <div className="absolute bottom-3 right-3 p-2 bg-blue-500/20 rounded-full animate-float">
+            <div className="absolute top-1/2 right-3 -translate-y-1/2 p-2 bg-blue-500/20 rounded-full animate-float">
               <ArrowRight className="h-4 w-4 text-blue-600" />
             </div>
           </div>
@@ -159,7 +159,7 @@ export function ProductCards({
             </div>
             
             {/* Botón de flecha flotante */}
-            <div className="absolute bottom-3 right-3 p-2 bg-emerald-500/20 rounded-full animate-float">
+            <div className="absolute top-1/2 right-3 -translate-y-1/2 p-2 bg-emerald-500/20 rounded-full animate-float">
               <ArrowRight className="h-4 w-4 text-emerald-600" />
             </div>
           </div>
