@@ -77,7 +77,7 @@ export function ProductCards({
           onClick={() => handleProductClick("prestamo")}
           className="group relative"
         >
-          <div className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 rounded-2xl h-36 md:h-40 px-3 md:px-4 py-2 md:py-2.5 flex flex-col items-center justify-center gap-1.5 border border-amber-700/30 shadow-xl relative overflow-hidden"
+          <div className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 rounded-2xl h-36 md:h-40 px-3 md:px-4 py-3 md:py-4 flex flex-col items-center justify-center gap-1.5 border border-amber-700/30 shadow-xl relative overflow-hidden"
           >
             <div className="p-4 md:p-5 rounded-full bg-amber-800 shadow-lg w-fit">
               <Zap className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
@@ -102,7 +102,7 @@ export function ProductCards({
           onClick={() => handleProductClick("adelanto")}
           className="group relative"
         >
-          <div className="bg-gradient-to-br from-teal-400 via-teal-500 to-cyan-600 rounded-2xl h-36 md:h-40 px-3 md:px-4 py-2 md:py-2.5 flex flex-col items-center justify-center gap-1.5 border border-teal-700/30 shadow-xl relative overflow-hidden"
+          <div className="bg-gradient-to-br from-teal-400 via-teal-500 to-cyan-600 rounded-2xl h-36 md:h-40 px-3 md:px-4 py-3 md:py-4 flex flex-col items-center justify-center gap-1.5 border border-teal-700/30 shadow-xl relative overflow-hidden"
           >
             <div className="p-4 md:p-5 rounded-full bg-teal-800 shadow-lg w-fit">
               <BarChart3 className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
