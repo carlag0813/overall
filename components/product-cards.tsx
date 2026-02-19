@@ -65,13 +65,13 @@ export function ProductCards({
   return (
     <section className="space-y-6">
       {/* Header con saludo e iconos de historial y FAQ */}
-      <div className="flex items-start justify-between gap-3 md:gap-4 px-1 animate-in fade-in slide-in-from-top-2 duration-500 delay-150">
+      <div className="flex items-center justify-between gap-3 md:gap-4 px-1 animate-in fade-in slide-in-from-top-2 duration-500 delay-150">
         <div className="flex items-center gap-2 md:gap-3 flex-1 min-w-0">
           <span className="text-3xl md:text-4xl flex-shrink-0">👋</span>
           <div className="flex-1 min-w-0">
             <h2 className="text-lg md:text-xl font-bold text-foreground">¡Hola Carlos!</h2>
             <p className="font-semibold text-foreground leading-tight text-xs md:text-sm">
-              <span className="block md:inline">Acceso rápido a tus servicios</span>
+              Acceso rápido a tus servicios
             </p>
           </div>
         </div>
@@ -84,17 +84,17 @@ export function ProductCards({
           onClick={() => handleProductClick("prestamo")}
           className="group relative"
         >
-          <div className="bg-gradient-to-br from-amber-500/20 to-amber-600/10 rounded-2xl p-4 md:p-5 aspect-square flex flex-col items-center justify-center gap-3 border border-amber-200/50"
+          <div className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 rounded-2xl p-4 md:p-5 aspect-square flex flex-col items-center justify-center gap-3 border border-amber-700/30 shadow-xl"
           >
-            <div className="p-3 md:p-3.5 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 shadow-lg">
+            <div className="p-3 md:p-3.5 rounded-xl bg-white/20 shadow-lg backdrop-blur-sm">
               <Zap className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
             </div>
             <div className="text-center">
-              <p className="font-bold text-sm md:text-base text-foreground leading-tight">Préstamo</p>
-              <p className="text-xs text-foreground/60 font-medium">Personal</p>
+              <p className="font-bold text-sm md:text-base text-white/95 leading-tight">Préstamo</p>
+              <p className="text-xs text-white/80 font-medium">Personal</p>
             </div>
             <div className="text-center pt-1">
-              <p className="text-xl md:text-2xl font-bold text-amber-600">{formatCurrency(personalLoanAmount)}</p>
+              <p className="text-xl md:text-2xl font-bold text-white drop-shadow-lg">{formatCurrency(personalLoanAmount)}</p>
             </div>
           </div>
         </button>
@@ -104,17 +104,17 @@ export function ProductCards({
           onClick={() => handleProductClick("adelanto")}
           className="group relative"
         >
-          <div className="bg-gradient-to-br from-cyan-500/20 to-teal-600/10 rounded-2xl p-4 md:p-5 aspect-square flex flex-col items-center justify-center gap-3 border border-cyan-200/50"
+          <div className="bg-gradient-to-br from-teal-400 via-teal-500 to-cyan-600 rounded-2xl p-4 md:p-5 aspect-square flex flex-col items-center justify-center gap-3 border border-teal-700/30 shadow-xl"
           >
-            <div className="p-3 md:p-3.5 rounded-xl bg-gradient-to-br from-cyan-500 to-teal-600 shadow-lg">
+            <div className="p-3 md:p-3.5 rounded-xl bg-white/20 shadow-lg backdrop-blur-sm">
               <BarChart3 className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
             </div>
             <div className="text-center">
-              <p className="font-bold text-sm md:text-base text-foreground leading-tight">Adelanto</p>
-              <p className="text-xs text-foreground/60 font-medium">de Salario</p>
+              <p className="font-bold text-sm md:text-base text-white/95 leading-tight">Adelanto</p>
+              <p className="text-xs text-white/80 font-medium">de Salario</p>
             </div>
             <div className="text-center pt-1">
-              <p className="text-xl md:text-2xl font-bold text-cyan-600">{formatCurrency(salaryAdvanceAmount)}</p>
+              <p className="text-xl md:text-2xl font-bold text-white drop-shadow-lg">{formatCurrency(salaryAdvanceAmount)}</p>
             </div>
           </div>
         </button>
