@@ -91,7 +91,7 @@ export function ProductCards({
             </div>
             
             {/* Botón de flecha flotante */}
-            <ChevronRight className="absolute top-1/2 right-3 -translate-y-1/2 h-5 w-5 text-white animate-float transform rotate-45" />
+            <ChevronRight className="absolute top-1/2 right-3 -translate-y-1/2 h-5 w-5 text-white animate-float" />
           </div>
         </button>
 
@@ -114,7 +114,7 @@ export function ProductCards({
             </div>
             
             {/* Botón de flecha flotante */}
-            <ChevronRight className="absolute top-1/2 right-3 -translate-y-1/2 h-5 w-5 text-white animate-float transform rotate-45" />
+            <ChevronRight className="absolute top-1/2 right-3 -translate-y-1/2 h-5 w-5 text-white animate-float" />
           </div>
         </button>
 
@@ -131,7 +131,7 @@ export function ProductCards({
             </div>
             
             {/* Botón de flecha flotante */}
-            <ChevronRight className="absolute top-1/2 right-3 -translate-y-1/2 h-5 w-5 text-blue-600 animate-float transform rotate-45" />
+            <ChevronRight className="absolute top-1/2 right-3 -translate-y-1/2 h-5 w-5 text-blue-600 animate-float" />
           </div>
         </Link>
 
@@ -153,7 +153,7 @@ export function ProductCards({
             </div>
             
             {/* Botón de flecha flotante */}
-            <ChevronRight className="absolute top-1/2 right-3 -translate-y-1/2 h-5 w-5 text-emerald-600 animate-float transform rotate-45" />
+            <ChevronRight className="absolute top-1/2 right-3 -translate-y-1/2 h-5 w-5 text-emerald-600 animate-float" />
           </div>
         </button>
       </div>
