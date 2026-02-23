@@ -16,6 +16,7 @@ import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { TimeExpectation } from "@/components/time-expectation"
 import { FAQHomeButton } from "@/components/faq-home-button"
+import { FAQModal } from "@/components/faq-modal"
 import { HomeBannerCarousel } from "@/components/home-banner-carousel"
 
 interface ProductCardsProps {
@@ -38,6 +39,7 @@ export function ProductCards({
   const router = useRouter()
   const [showBreakdownModal, setShowBreakdownModal] = useState(false)
   const [breakdownType, setBreakdownType] = useState<"adelanto" | "prestamo">("prestamo")
+  const [showFAQModal, setShowFAQModal] = useState(false)
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat("es-PE", {
@@ -137,9 +139,7 @@ export function ProductCards({
 
         {/* Ayuda / FAQ */}
         <button
-          onClick={() => {
-            document.querySelector('[title="Preguntas frecuentes"]')?.dispatchEvent(new Event('click', { bubbles: true }))
-          }}
+          onClick={() => setShowFAQModal(true)}
           className="group"
         >
           <div className="bg-gradient-to-br from-emerald-500/20 to-green-600/10 rounded-2xl h-32 md:h-36 flex flex-col items-center justify-center gap-1.5 border border-emerald-200/50 relative overflow-hidden"
@@ -234,6 +234,8 @@ export function ProductCards({
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
+
+      <FAQModal isOpen={showFAQModal} onClose={() => setShowFAQModal(false)} />
     </section>
   )
 }
