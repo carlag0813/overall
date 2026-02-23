@@ -11,13 +11,13 @@ import { AppFooter } from "@/components/app-footer"
 const mockUser = {
   name: "Carlos Mendoza",
   employeeId: "EMP-2024-0847",
-  netSalary: 1200,
+  netSalary: 2500,
   seniority: 8,
   hasActiveLoan: false,
-  legalDeductions: 80,
-  judicialDeductions: 150,
-  thirdPartyDeductions: 50,
-  projectedLBS: 280,
+  legalDeductions: 150,
+  judicialDeductions: 250,
+  thirdPartyDeductions: 100,
+  projectedLBS: 580,
   recentRequestCount: 2,
   bankAccount: "BCP ****1234",
   activeLoans: [

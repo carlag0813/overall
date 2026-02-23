@@ -8,7 +8,7 @@ import { DrawerHeader } from "@/components/ui/drawer"
 import { DrawerContent } from "@/components/ui/drawer"
 import { Drawer } from "@/components/ui/drawer"
 import { useState } from "react"
-import { Heart, Copy, ClipboardCheck, Eye, ChevronRight, Zap, HelpCircle, BarChart3, ArrowRight } from "lucide-react"
+import { Heart, Copy, ClipboardCheck, Eye, ChevronRight, Zap, HelpCircle, BarChart3 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -77,7 +77,7 @@ export function ProductCards({
           onClick={() => handleProductClick("prestamo")}
           className="group relative"
         >
-          <div className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 rounded-2xl h-36 md:h-40 px-3 md:px-4 py-3 md:py-4 flex flex-col items-center justify-center gap-1.5 border border-amber-700/30 shadow-xl relative overflow-hidden"
+          <div className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 rounded-2xl h-44 md:h-48 px-3 md:px-4 py-3 md:py-4 flex flex-col items-center justify-center gap-1.5 border border-amber-700/30 shadow-xl relative overflow-hidden"
           >
             <div className="p-4 md:p-5 rounded-full bg-amber-800 shadow-lg w-fit">
               <Zap className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
@@ -91,9 +91,7 @@ export function ProductCards({
             </div>
             
             {/* Botón de flecha flotante */}
-            <div className="absolute top-1/2 right-3 -translate-y-1/2 p-2 bg-white/20 rounded-full animate-float">
-              <ArrowRight className="h-4 w-4 text-white" />
-            </div>
+            <ChevronRight className="absolute top-1/2 right-3 -translate-y-1/2 h-5 w-5 text-white animate-float transform rotate-45" />
           </div>
         </button>
 
@@ -102,7 +100,7 @@ export function ProductCards({
           onClick={() => handleProductClick("adelanto")}
           className="group relative"
         >
-          <div className="bg-gradient-to-br from-teal-400 via-teal-500 to-cyan-600 rounded-2xl h-36 md:h-40 px-3 md:px-4 py-3 md:py-4 flex flex-col items-center justify-center gap-1.5 border border-teal-700/30 shadow-xl relative overflow-hidden"
+          <div className="bg-gradient-to-br from-teal-400 via-teal-500 to-cyan-600 rounded-2xl h-44 md:h-48 px-3 md:px-4 py-3 md:py-4 flex flex-col items-center justify-center gap-1.5 border border-teal-700/30 shadow-xl relative overflow-hidden"
           >
             <div className="p-4 md:p-5 rounded-full bg-teal-800 shadow-lg w-fit">
               <BarChart3 className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
@@ -116,9 +114,7 @@ export function ProductCards({
             </div>
             
             {/* Botón de flecha flotante */}
-            <div className="absolute top-1/2 right-3 -translate-y-1/2 p-2 bg-white/20 rounded-full animate-float">
-              <ArrowRight className="h-4 w-4 text-white" />
-            </div>
+            <ChevronRight className="absolute top-1/2 right-3 -translate-y-1/2 h-5 w-5 text-white animate-float transform rotate-45" />
           </div>
         </button>
 
@@ -135,9 +131,7 @@ export function ProductCards({
             </div>
             
             {/* Botón de flecha flotante */}
-            <div className="absolute top-1/2 right-3 -translate-y-1/2 p-2 bg-blue-500/20 rounded-full animate-float">
-              <ArrowRight className="h-4 w-4 text-blue-600" />
-            </div>
+            <ChevronRight className="absolute top-1/2 right-3 -translate-y-1/2 h-5 w-5 text-blue-600 animate-float transform rotate-45" />
           </div>
         </Link>
 
@@ -159,9 +153,7 @@ export function ProductCards({
             </div>
             
             {/* Botón de flecha flotante */}
-            <div className="absolute top-1/2 right-3 -translate-y-1/2 p-2 bg-emerald-500/20 rounded-full animate-float">
-              <ArrowRight className="h-4 w-4 text-emerald-600" />
-            </div>
+            <ChevronRight className="absolute top-1/2 right-3 -translate-y-1/2 h-5 w-5 text-emerald-600 animate-float transform rotate-45" />
           </div>
         </button>
       </div>
