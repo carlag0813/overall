@@ -11,13 +11,13 @@ import { AppFooter } from "@/components/app-footer"
 const mockUser = {
   name: "Carlos Mendoza",
   employeeId: "EMP-2024-0847",
-  netSalary: 1200,
+  netSalary: 2500,
   seniority: 8,
   hasActiveLoan: false,
-  legalDeductions: 80,
-  judicialDeductions: 150,
-  thirdPartyDeductions: 50,
-  projectedLBS: 280,
+  legalDeductions: 150,
+  judicialDeductions: 250,
+  thirdPartyDeductions: 100,
+  projectedLBS: 580,
   recentRequestCount: 2,
   bankAccount: "BCP ****1234",
   activeLoans: [
@@ -75,7 +75,7 @@ export default function PreApprovedOfferPage() {
   const unreadNotifications = 2
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col">
       <UserHeader 
         userName={mockUser.name} 
         employeeId={mockUser.employeeId} 
@@ -83,7 +83,7 @@ export default function PreApprovedOfferPage() {
         className={showContent ? "animate-in fade-in slide-in-from-top-4 duration-700" : "hidden"}
       />
 
-      <main className={`px-4 pb-8 ${showContent ? "animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150" : "hidden"}`}>
+      <main className={`flex-1 px-4 py-5 ${showContent ? "animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150" : "hidden"} flex flex-col overflow-y-auto max-h-[calc(100vh-120px)]`}>
         <ProductCards
           salaryAdvanceAmount={salaryAdvanceAmount}
           personalLoanAmount={personalLoanAmount}
@@ -91,13 +91,6 @@ export default function PreApprovedOfferPage() {
           legalDeductions={mockUser.legalDeductions}
           judicialDeductions={mockUser.judicialDeductions}
           thirdPartyDeductions={mockUser.thirdPartyDeductions}
-        />
-
-        <AccountSummary
-          pendingPayment={pendingPayment}
-          pendingReceivable={pendingReceivable}
-          activeLoans={mockUser.activeLoans}
-          accumulatedNet={mockUser.accumulatedNet}
         />
       </main>
 

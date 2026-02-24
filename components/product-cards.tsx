@@ -8,7 +8,7 @@ import { DrawerHeader } from "@/components/ui/drawer"
 import { DrawerContent } from "@/components/ui/drawer"
 import { Drawer } from "@/components/ui/drawer"
 import { useState } from "react"
-import { Heart, Copy, ClipboardCheck, Eye, ChevronRight } from "lucide-react"
+import { Heart, Copy, ClipboardCheck, Eye, ChevronRight, Zap, HelpCircle, BarChart3 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -16,6 +16,8 @@ import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { TimeExpectation } from "@/components/time-expectation"
 import { FAQHomeButton } from "@/components/faq-home-button"
+import { FAQModal } from "@/components/faq-modal"
+import { HomeBannerCarousel } from "@/components/home-banner-carousel"
 
 interface ProductCardsProps {
   salaryAdvanceAmount: number
@@ -37,6 +39,7 @@ export function ProductCards({
   const router = useRouter()
   const [showBreakdownModal, setShowBreakdownModal] = useState(false)
   const [breakdownType, setBreakdownType] = useState<"adelanto" | "prestamo">("prestamo")
+  const [showFAQModal, setShowFAQModal] = useState(false)
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat("es-PE", {
@@ -62,141 +65,102 @@ export function ProductCards({
   const limitPercentage = breakdownType === "prestamo" ? 0.5 : 0.3
 
   return (
-    <section>
-      {/* Header con saludo e iconos de historial y FAQ */}
-      <div className="flex items-start justify-between gap-3 md:gap-4 mb-8 px-1 mt-5 animate-in fade-in slide-in-from-top-2 duration-500 delay-150">
-        <div className="flex items-center gap-2 md:gap-3 flex-1 min-w-0">
-          <span className="text-3xl md:text-4xl flex-shrink-0">👋</span>
-          <div className="flex-1 min-w-0">
-            <h2 className="text-lg md:text-xl font-bold text-foreground">¡Hola Carlos!</h2>
-            <p className="font-semibold text-foreground leading-tight text-xs md:text-sm">
-              <span className="block md:inline">Conoce tus créditos disponibles</span>
-              
-            </p>
-          </div>
-        </div>
-        <div className="flex flex-col items-center gap-2 flex-shrink-0">
-          <Link href="/mi-historial" className="flex-shrink-0 w-full">
-            <Button 
-              variant="default"
-              size="sm"
-              className="md:size-lg bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white font-semibold shadow-lg hover:shadow-xl transition-all gap-1 md:gap-2 h-9 md:h-10 w-full justify-center"
-              title="Ver mis solicitudes"
-            >
-              <ClipboardCheck className="h-4 w-4 md:h-5 md:w-5" />
-              <span className="text-xs md:text-sm">Mis Operaciones</span>
-            </Button>
-          </Link>
-
-          {/* FAQ Button - Debajo del botón de Mis Operaciones */}
-          <FAQHomeButton />
-        </div>
+    <section className="space-y-2">
+      {/* Header con saludo en una sola línea */}
+      <div className="flex items-center gap-2 md:gap-3 px-1 mb-9 animate-in fade-in slide-in-from-top-2 duration-500 delay-150">
+        <span className="text-3xl md:text-4xl flex-shrink-0">👋</span>
+        <p className="font-bold text-lg md:text-xl text-foreground">¡Hola Carlos! <span className="font-semibold text-foreground/80">Acceso rápido a tus servicios</span></p>
       </div>
 
-      {/* Tu Oferta Preaprobada */}
-      
-
-      {/* TimeExpectation banner - Arriba de las tarjetas */}
-      <TimeExpectation />
-
-      <div className="space-y-4">
-        {/* Personal Loan Card */}
-        <Card className="overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 bg-gradient-to-br from-[#D97706]/35 via-[#F59E0B]/20 to-[#FFF1B9]/10 group relative animate-in fade-in slide-in-from-bottom-4 duration-500 delay-[450ms]">
-          <div className="h-1 bg-[#D97706] relative z-10" />
-          
-          <CardHeader className="pt-4 px-5 relative z-10 pb-0.5">
-            <div className="flex items-start justify-between">
-              <div className="flex items-center gap-3 flex-1">
-                <div className="p-2.5 rounded-lg bg-[#D97706]/15">
-                  <span className="text-2xl">💎</span>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-base font-bold text-foreground">Préstamo por Planilla</h3>
-                  <p className="text-xs text-foreground/70 font-medium">Disponible al instante</p>
-                </div>
-              </div>
+      {/* Grilla de 4 accesos rápidos - Estilo Yape */}
+      <div className="grid grid-cols-2 gap-2 md:gap-3 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-200">
+        {/* Préstamo Personal - Más prominente */}
+        <button
+          onClick={() => handleProductClick("prestamo")}
+          className="group relative"
+        >
+          <div className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 rounded-2xl h-44 md:h-48 px-3 md:px-4 py-3 md:py-4 flex flex-col items-center justify-center gap-1.5 border border-amber-700/30 shadow-xl relative overflow-hidden"
+          >
+            <div className="p-4 md:p-5 rounded-full bg-amber-800 shadow-lg w-fit">
+              <Zap className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
             </div>
-          </CardHeader>
-
-          <CardContent className="pb-4 px-5 space-y-4 relative z-10">
-            <div className="bg-gradient-to-br from-[#FFF1B9]/40 to-[#FFF1B9]/20 rounded-lg p-4 text-center border border-[#F59E0B]/30 py-3">
-              <p className="text-foreground/70 mb-2 font-semibold text-base">Monto  Garantizado</p>
-              <p className="font-bold text-[#D97706] mb-1 filter drop-shadow-lg text-4xl">{formatCurrency(personalLoanAmount)}</p>
-              
+            <div className="text-center">
+              <p className="font-bold text-sm md:text-base text-white/95 leading-tight">Préstamo</p>
+              <p className="text-xs text-white/80 font-medium">Personal</p>
             </div>
-
-            <Button
-              className="w-full bg-primary hover:bg-primary/90 text-white font-semibold text-sm h-10 transition-all hover:shadow-md"
-              onClick={() => handleProductClick("prestamo")}
-            >
-              Iniciar solicitud de préstamo
-              <ChevronRight className="h-4 w-4 ml-2" />
-            </Button>
-
-            <Button
-              variant="ghost"
-              size="sm"
-              className="w-full text-[#D97706] hover:text-[#D97706] font-medium hover:bg-[#FFF1B9]/40 h-8 text-base"
-              onClick={() => handleShowBreakdown("prestamo")}
-            >
-              <Eye className="h-3.5 w-3.5 mr-1.5" />
-              Conoce cómo calculamos el monto
-            </Button>
-          </CardContent>
-
-          <CardFooter className="pt-0 px-5 relative z-10 pb-2">
-          </CardFooter>
-        </Card>
-
-        {/* Salary Advance Card */}
-        <Card className="overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 bg-gradient-to-br from-interaction/35 via-interaction/20 to-interaction/10 group relative animate-in fade-in slide-in-from-bottom-4 duration-500 delay-[600ms]">
-          <div className="bg-interaction relative z-10 h-1" />
-
-          <CardHeader className="pt-4 px-5 relative z-10 pb-0.5">
-            <div className="flex items-start justify-between">
-              <div className="flex items-center gap-3 flex-1">
-                <div className="p-2.5 rounded-lg bg-interaction/15">
-                  <span className="text-2xl">💼</span>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-base font-bold text-foreground">Adelanto de Salario</h3>
-                  <p className="text-xs text-foreground/70 font-medium">Disponible al instante</p>
-                </div>
-              </div>
+            <div className="text-center pt-1">
+              <p className="text-xl md:text-2xl font-bold text-white drop-shadow-lg">{formatCurrency(personalLoanAmount)}</p>
             </div>
-          </CardHeader>
+            
+            {/* Botón de flecha flotante */}
+            <ChevronRight className="absolute top-1/2 right-3 -translate-y-1/2 h-5 w-5 text-white animate-float" />
+          </div>
+        </button>
 
-          <CardContent className="pb-4 px-5 space-y-4 relative z-10">
-            <div className="bg-gradient-to-br from-interaction/12 to-interaction/5 rounded-lg p-4 text-center border border-interaction/20 py-3">
-              <p className="text-foreground/70 mb-2 font-semibold text-base">Monto Garantizado</p>
-              <p className="font-bold text-[#07586E] mb-1 filter drop-shadow-lg text-4xl">{formatCurrency(salaryAdvanceAmount)}</p>
-              
+        {/* Adelanto de Salario - Más prominente */}
+        <button
+          onClick={() => handleProductClick("adelanto")}
+          className="group relative"
+        >
+          <div className="bg-gradient-to-br from-teal-400 via-teal-500 to-cyan-600 rounded-2xl h-44 md:h-48 px-3 md:px-4 py-3 md:py-4 flex flex-col items-center justify-center gap-1.5 border border-teal-700/30 shadow-xl relative overflow-hidden"
+          >
+            <div className="p-4 md:p-5 rounded-full bg-teal-800 shadow-lg w-fit">
+              <BarChart3 className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
             </div>
+            <div className="text-center">
+              <p className="font-bold text-sm md:text-base text-white/95 leading-tight">Adelanto</p>
+              <p className="text-xs text-white/80 font-medium">de Salario</p>
+            </div>
+            <div className="text-center pt-1">
+              <p className="text-xl md:text-2xl font-bold text-white drop-shadow-lg">{formatCurrency(salaryAdvanceAmount)}</p>
+            </div>
+            
+            {/* Botón de flecha flotante */}
+            <ChevronRight className="absolute top-1/2 right-3 -translate-y-1/2 h-5 w-5 text-white animate-float" />
+          </div>
+        </button>
 
-            <Button
-              className="w-full bg-primary hover:bg-primary/90 text-white font-semibold text-sm h-10 transition-all hover:shadow-md"
-              onClick={() => handleProductClick("adelanto")}
-            >
-              Iniciar solicitud de adelanto
-              <ChevronRight className="h-4 w-4 ml-2" />
-            </Button>
+        {/* Mis Operaciones */}
+        <Link href="/mi-historial" className="group">
+          <div className="bg-gradient-to-br from-blue-500/20 to-indigo-600/10 rounded-2xl h-32 md:h-36 flex flex-col items-center justify-center gap-1.5 border border-blue-200/50 relative overflow-hidden"
+          >
+            <div className="p-4 md:p-5 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg w-fit">
+              <ClipboardCheck className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
+            </div>
+            <div className="text-center">
+              <p className="font-bold text-sm md:text-base text-foreground leading-tight">Mis</p>
+              <p className="text-xs text-foreground/60 font-medium">Operaciones</p>
+            </div>
+            
+            {/* Botón de flecha flotante */}
+            <ChevronRight className="absolute top-1/2 right-3 -translate-y-1/2 h-5 w-5 text-blue-600 animate-float" />
+          </div>
+        </Link>
 
-            <Button
-              variant="ghost"
-              size="sm"
-              className="w-full text-[#07586E] hover:text-[#07586E] font-medium hover:bg-[#07586E]/10 h-8 text-base"
-              onClick={() => handleShowBreakdown("adelanto")}
-            >
-              <Eye className="h-3.5 w-3.5 mr-1.5" />
-              Conoce cómo calculamos el monto
-            </Button>
-          </CardContent>
+        {/* Ayuda / FAQ */}
+        <button
+          onClick={() => setShowFAQModal(true)}
+          className="group"
+        >
+          <div className="bg-gradient-to-br from-emerald-500/20 to-green-600/10 rounded-2xl h-32 md:h-36 flex flex-col items-center justify-center gap-1.5 border border-emerald-200/50 relative overflow-hidden"
+          >
+            <div className="p-4 md:p-5 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 shadow-lg w-fit">
+              <HelpCircle className="h-6 w-6 md:h-7.5 md:w-7.5 text-white" />
+            </div>
+            <div className="text-center">
+              <p className="font-bold text-sm md:text-base text-foreground leading-tight">Ayuda</p>
+              <p className="text-xs text-foreground/60 font-medium">FAQ</p>
+            </div>
+            
+            {/* Botón de flecha flotante */}
+            <ChevronRight className="absolute top-1/2 right-3 -translate-y-1/2 h-5 w-5 text-emerald-600 animate-float" />
+          </div>
+        </button>
+      </div>
 
-          <CardFooter className="pt-0 px-5 relative z-10 pb-2">
-          </CardFooter>
-        </Card>
-
-        
+      {/* Banner Carousel */}
+      <div className="mt-7 md:mt-8 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-300">
+        <HomeBannerCarousel />
       </div>
 
       <Drawer open={showBreakdownModal} onOpenChange={setShowBreakdownModal}>
@@ -270,6 +234,8 @@ export function ProductCards({
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
+
+      <FAQModal isOpen={showFAQModal} onClose={() => setShowFAQModal(false)} />
     </section>
   )
 }
