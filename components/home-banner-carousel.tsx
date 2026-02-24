@@ -3,12 +3,14 @@
 import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { ArticleModal } from "@/components/article-modal"
 
 interface Banner {
   id: number
   title: string
   description: string
   image: string
+  content: string
 }
 
 const banners: Banner[] = [
@@ -17,18 +19,98 @@ const banners: Banner[] = [
     title: "Préstamo Aprobado",
     description: "Acceso a crédito rápido sin complicaciones. Obtén las llaves a tu futuro en minutos.",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Feb%2019%2C%202026%2C%2005_07_24%20PM-T3HT2z03L1JG0kTuhBxGAxpYCqQvTA.png",
+    content: `¿Estás buscando acceder a crédito de forma rápida y segura? Con nuestro Préstamo Personal, ahora es posible.
+
+Proceso Rápido y Transparente:
+• Aprobación instantánea después de completar tu solicitud
+• Dinero disponible en tu cuenta dentro de 24 horas
+• Tasas competitivas que varían según monto y plazo
+
+¿Qué Necesitas?
+Solo tu cédula de identidad vigente. Nuestro sistema se conecta automáticamente con nómina para verificar tu información. Todo es digital, sin papeleos complicados.
+
+¿Cómo Funcionan los Pagos?
+Las cuotas se descuentan automáticamente de tu segunda quincena cada mes. No necesitas hacer nada, todo ocurre de forma automática. Podrás ver el cronograma completo antes de confirmar.
+
+Transparencia Total:
+En nuestro simulador verás exactamente cuánto pagarás en intereses, IGV y comisiones antes de comprometerte. No hay sorpresas.
+
+Requisitos:
+• Mínimo 3 meses de antigüedad en tu empresa
+• Cédula vigente
+• Información completa en nómina
+
+¿Por Qué Elegirnos?
+Somos rápidos, seguros y completamente transparentes. Tu seguridad financiera es nuestra prioridad.`,
   },
   {
     id: 2,
     title: "Tu Familia Segura",
     description: "Protege a los tuyos con crédito flexible. Adelanta salario para esos momentos importantes.",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Feb%2019%2C%202026%2C%2005_12_52%20PM-eK3ydxodR9rTou2hNjHHFzHlYgX435.png",
+    content: `La familia es lo más importante. Por eso creamos soluciones financieras que te ayuden a cuidar de ellos.
+
+Adelanto de Salario: Tu Salvavidas Financiero
+¿Necesitas dinero antes de fin de mes? Con nuestro Adelanto de Salario, puedes acceder a parte de tu sueldo cuando lo necesitas.
+
+Ventajas Clave:
+• Acceso flexible a tu dinero ganado
+• Proceso simple y rápido
+• Sin comprometer tu próximo sueldo
+
+Casos de Uso:
+• Emergencias médicas
+• Gastos escolares inesperados
+• Reparaciones urgentes en el hogar
+• Eventos familiares importantes
+
+Cómo Funciona:
+1. Solicita en minutos desde tu aplicación
+2. Aprobación instantánea
+3. Dinero disponible en horas
+4. El descuento se realiza cuando corresponde
+
+Límites Generosos:
+Accede hasta el 80% de tu salario acumulado. Mientras más trabajes, más puedes adelantar.
+
+Protección Familiar:
+Con crédito flexible y seguro, puedes estar tranquilo sabiendo que tienes acceso a dinero cuando tu familia lo necesita.`,
   },
   {
     id: 3,
     title: "Confianza Generacional",
     description: "Acceso a crédito para todas las edades. Servicios financieros diseñados para ti.",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Feb%2019%2C%202026%2C%2005_09_31%20PM-mkMEymimVN0hro6IYh1TVRnjUbEqCx.png",
+    content: `Creemos que el acceso a crédito no debería tener límites de edad. Nuestros servicios están diseñados para personas en diferentes etapas de la vida.
+
+Para Jóvenes Profesionales:
+• Acceso a tu primer crédito personal
+• Tasas competitivas para menores de 30
+• Educación financiera incluida
+
+Para Profesionales Establecidos:
+• Montos mayores según tu antigüedad
+• Flexibilidad en plazos
+• Prioridad en aprobaciones
+
+Para Profesionales Experimentados:
+• Límites máximos disponibles
+• Condiciones preferenciales
+• Atención personalizada
+
+Nuestro Compromiso:
+Independientemente de tu edad o experiencia laboral, mereces acceso a crédito justo y transparente.
+
+Requisitos Simples:
+• 3 meses mínimo de antigüedad
+• Identificación vigente
+• Información en nómina actualizada
+
+¿Por Qué Somos Diferentes?
+No discriminamos por edad. Evaluamos tu capacidad de pago y tus necesidades reales. Cada cliente es importante para nosotros.
+
+Tu Confianza es Nuestro Valor:
+Con miles de clientes satisfechos de diferentes edades, sabemos que hacer crédito justo es posible.`,
   },
 ]
 
@@ -36,6 +118,7 @@ export function HomeBannerCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [autoSlide, setAutoSlide] = useState(true)
   const [isTransitioning, setIsTransitioning] = useState(false)
+  const [showArticleModal, setShowArticleModal] = useState(false)
 
   useEffect(() => {
     if (!autoSlide) return
@@ -125,6 +208,7 @@ export function HomeBannerCarousel() {
 
               <Button
                 size="sm"
+                onClick={() => setShowArticleModal(true)}
                 className="h-8 px-3 bg-primary hover:bg-primary/90 text-white font-semibold text-xs gap-1 rounded-lg shadow-md hover:shadow-lg transition-all"
               >
                 <span>Leer más</span>
@@ -151,6 +235,12 @@ export function HomeBannerCarousel() {
           </div>
         </div>
       </div>
+
+      <ArticleModal 
+        isOpen={showArticleModal} 
+        onClose={() => setShowArticleModal(false)}
+        article={banner}
+      />
     </section>
   )
 }
