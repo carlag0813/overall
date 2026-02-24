@@ -119,6 +119,7 @@ export function HomeBannerCarousel() {
   const [autoSlide, setAutoSlide] = useState(true)
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [showArticleModal, setShowArticleModal] = useState(false)
+  const [selectedArticle, setSelectedArticle] = useState<Banner | null>(null)
 
   useEffect(() => {
     if (!autoSlide) return
@@ -208,7 +209,10 @@ export function HomeBannerCarousel() {
 
               <Button
                 size="sm"
-                onClick={() => setShowArticleModal(true)}
+                onClick={() => {
+                  setSelectedArticle(banner)
+                  setShowArticleModal(true)
+                }}
                 className="h-8 px-3 bg-primary hover:bg-primary/90 text-white font-semibold text-xs gap-1 rounded-lg shadow-md hover:shadow-lg transition-all"
               >
                 <span>Leer más</span>
@@ -239,7 +243,7 @@ export function HomeBannerCarousel() {
       <ArticleModal 
         isOpen={showArticleModal} 
         onClose={() => setShowArticleModal(false)}
-        article={banner}
+        article={selectedArticle}
       />
     </section>
   )
