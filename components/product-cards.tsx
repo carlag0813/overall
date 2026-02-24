@@ -90,6 +90,15 @@ export function ProductCards({
             </div>
             <div className="text-center pt-1">
               <p className="text-xl md:text-2xl font-bold text-white drop-shadow-lg">{formatCurrency(personalLoanAmount)}</p>
+              <button
+                onClick={() => {
+                  setBreakdownType("prestamo")
+                  setShowBreakdownModal(true)
+                }}
+                className="text-xs md:text-sm text-white/80 hover:text-white underline mt-1 transition-colors"
+              >
+                Conoce cómo se calculó el monto
+              </button>
             </div>
             
             {/* Botón de flecha flotante */}
@@ -113,6 +122,15 @@ export function ProductCards({
             </div>
             <div className="text-center pt-1">
               <p className="text-xl md:text-2xl font-bold text-white drop-shadow-lg">{formatCurrency(salaryAdvanceAmount)}</p>
+              <button
+                onClick={() => {
+                  setBreakdownType("adelanto")
+                  setShowBreakdownModal(true)
+                }}
+                className="text-xs md:text-sm text-white/80 hover:text-white underline mt-1 transition-colors"
+              >
+                Conoce cómo se calculó el monto
+              </button>
             </div>
             
             {/* Botón de flecha flotante */}

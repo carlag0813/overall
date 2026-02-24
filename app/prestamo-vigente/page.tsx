@@ -1,11 +1,34 @@
 "use client"
 
-import { CreditCard, Calendar, AlertCircle, ArrowLeft, Banknote, ChevronDown, ChevronUp, CheckCircle2, Clock } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import { AppFooter } from "@/components/app-footer"
 import { useState } from "react"
+import { ChevronUp, ChevronDown, CheckCircle2, Clock } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
+import { UserHeader } from "@/components/user-header"
+import { ProductCards } from "@/components/product-cards"
+import { AppFooter } from "@/components/app-footer"
+
+const mockUser = {
+  name: "Carlos Mendoza",
+  employeeId: "EMP-2024-0847",
+  netSalary: 2500,
+  seniority: 8,
+  hasActiveLoan: true,
+  legalDeductions: 150,
+  judicialDeductions: 250,
+  thirdPartyDeductions: 100,
+  projectedLBS: 580,
+  recentRequestCount: 2,
+  bankAccount: "BCP ****1234",
+  activeLoans: [
+    { description: "Préstamo Personal #1247", amount: 850 },
+    { description: "Adelanto Mayo 2024", amount: 200 },
+  ],
+  accumulatedNet: [
+    { description: "Días trabajados (15)", amount: 2100 },
+    { description: "Horas extra", amount: 380 },
+    { description: "Bonificación", amount: 280 },
+  ],
+}
 
 const mockLoanData = {
   id: "PR-2024-001",
@@ -14,13 +37,7 @@ const mockLoanData = {
   remainingInstallments: 3,
   totalInstallments: 6,
   monthlyPayment: 262.5,
-  startDate: "15 Oct 2025",
-  endDate: "15 Mar 2026",
   nextPaymentDate: "15 Feb 2026",
-  interestRate: 1.0,
-  totalInterest: 52.5,
-  commission: 31.5,
-  igv: 5.67,
   quotas: [
     { number: 1, date: "15 Oct 2025", amount: 262.5, paid: true },
     { number: 2, date: "15 Nov 2025", amount: 262.5, paid: true },
@@ -38,203 +55,144 @@ const formatCurrency = (amount: number) => {
   }).format(amount)
 }
 
-export default function PrestamoVigentePage() {
-  const [scheduleExpanded, setScheduleExpanded] = useState(false)
-  const [breakdownExpanded, setBreakdownExpanded] = useState(false)
+function ActiveLoanCard() {
+  const [isExpanded, setIsExpanded] = useState(false)
   
   const progressPercentage = ((mockLoanData.totalInstallments - mockLoanData.remainingInstallments) / mockLoanData.totalInstallments) * 100
   const nextQuota = mockLoanData.quotas.find((q) => !q.paid)
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header mejorado con gradiente teal */}
-      <header className="bg-gradient-to-r from-teal-600 to-teal-700 px-4 pt-12 pb-6">
-        <Link href="/">
-          <Button variant="ghost" size="sm" className="text-teal-50 hover:bg-teal-700/50 -ml-2 mb-4">
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Volver al inicio
-          </Button>
-        </Link>
-        <h1 className="text-teal-50 font-semibold text-lg">Préstamo Vigente</h1>
-        <p className="text-teal-100 text-xs mt-1">ID: {mockLoanData.id}</p>
-      </header>
-
-      <div className="px-4 py-6 space-y-4">
-        {/* Banner principal mejorado */}
-        <Card className="border-0 bg-gradient-to-br from-teal-50 to-emerald-50 shadow-md">
-          <CardContent className="p-5">
-            <div className="flex items-start gap-4">
-              <div className="p-3 bg-teal-100 rounded-full shrink-0">
-                <CheckCircle2 className="h-6 w-6 text-teal-600" />
-              </div>
-              <div className="space-y-2">
-                <h3 className="font-semibold text-teal-900 text-base">Operación activa</h3>
-                <p className="text-teal-800 text-xs leading-relaxed">
-                  Tu préstamo está en curso. Vas pagando {mockLoanData.totalInstallments - mockLoanData.remainingInstallments} de {mockLoanData.totalInstallments} cuotas. Quedan {mockLoanData.remainingInstallments} por pagar.
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Próxima cuota destacada */}
-        {nextQuota && (
-          <Card className="border-0 bg-gradient-to-br from-amber-50 to-orange-50 shadow-md border-l-4 border-l-amber-600">
-            <CardContent className="p-5">
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <h4 className="font-semibold text-amber-900 text-sm">Próximo Pago</h4>
-                  <span className="text-xs bg-amber-100 text-amber-700 px-2.5 py-1 rounded-full font-semibold">Cuota {nextQuota.number}</span>
-                </div>
-                <div className="flex items-baseline justify-between">
-                  <span className="text-3xl font-bold text-amber-700">{formatCurrency(nextQuota.amount)}</span>
-                  <span className="text-xs text-amber-600 font-medium">{nextQuota.date}</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        )}
-
-        {/* Resumen del préstamo vigente mejorado */}
-        <Card className="border-teal-100 shadow-sm">
-          <CardContent className="p-5 space-y-4">
-            <div className="flex items-center gap-2 text-foreground">
-              <CreditCard className="h-4 w-4 text-teal-600" />
-              <h4 className="font-semibold text-sm">Resumen de tu préstamo</h4>
-            </div>
-
-            <div className="space-y-3">
-              <div className="flex items-center justify-between py-3 border-b border-teal-100">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-teal-100 rounded-lg">
-                    <Banknote className="h-4 w-4 text-teal-600" />
-                  </div>
-                  <span className="text-sm text-muted-foreground">Saldo pendiente</span>
-                </div>
-                <span className="font-semibold text-teal-700 text-base">{formatCurrency(mockLoanData.pendingAmount)}</span>
-              </div>
-
-              <div className="flex items-center justify-between py-3 border-b border-teal-100">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-amber-100 rounded-lg">
-                    <Calendar className="h-4 w-4 text-amber-600" />
-                  </div>
-                  <span className="text-sm text-muted-foreground">Cuotas restantes</span>
-                </div>
-                <span className="font-semibold text-amber-700 text-base">
-                  {mockLoanData.remainingInstallments} de {mockLoanData.totalInstallments}
-                </span>
-              </div>
-
-              <div className="flex items-center justify-between py-3 border-b border-teal-100">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-teal-100 rounded-lg">
-                    <CreditCard className="h-4 w-4 text-teal-600" />
-                  </div>
-                  <span className="text-sm text-muted-foreground">Cuota mensual</span>
-                </div>
-                <span className="font-semibold text-foreground">{formatCurrency(mockLoanData.monthlyPayment)}</span>
-              </div>
-
-              <div className="flex items-center justify-between py-3">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-emerald-100 rounded-lg">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-600" />
-                  </div>
-                  <span className="text-sm text-muted-foreground">Total del préstamo</span>
-                </div>
-                <span className="font-semibold text-emerald-700 text-base">{formatCurrency(mockLoanData.totalLoanAmount)}</span>
-              </div>
-            </div>
-
-            {/* Barra de progreso mejorada */}
-            <div className="space-y-3 pt-4 border-t border-teal-100">
-              <div className="flex justify-between text-xs text-muted-foreground">
-                <span className="font-medium">Progreso de pago</span>
-                <span className="font-semibold text-teal-700">{progressPercentage.toFixed(0)}% completado</span>
-              </div>
-              <div className="h-3 bg-gray-200 rounded-full overflow-hidden shadow-sm">
-                <div
-                  className="h-full bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full transition-all duration-500"
-                  style={{ width: `${progressPercentage}%` }}
-                />
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Cronograma de cuotas expandible */}
-        <Card className="border-teal-100 shadow-sm">
-          <button
-            onClick={() => setScheduleExpanded(!scheduleExpanded)}
-            className="w-full px-5 py-4 flex items-center justify-between hover:bg-teal-50/50 transition-colors"
-          >
-            <div className="flex items-center gap-3">
-              <Calendar className="h-4 w-4 text-teal-600" />
-              <h4 className="font-semibold text-sm text-foreground">Cronograma de Cuotas</h4>
-            </div>
-            {scheduleExpanded ? (
-              <ChevronUp className="h-4 w-4 text-teal-600" />
-            ) : (
-              <ChevronDown className="h-4 w-4 text-teal-600" />
-            )}
-          </button>
-
-          {scheduleExpanded && (
-            <CardContent className="px-5 pb-5 pt-0 border-t border-teal-100">
-              <div className="max-h-96 overflow-y-auto space-y-2">
-                {mockLoanData.quotas.map((quota) => (
-                  <div key={quota.number} className="flex items-center justify-between p-3 bg-teal-50/40 rounded-lg hover:bg-teal-50 transition-colors">
-                    <div className="flex items-center gap-3 flex-1">
-                      {quota.paid ? (
-                        <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0" />
-                      ) : (
-                        <Clock className="h-4 w-4 text-amber-500 flex-shrink-0" />
-                      )}
-                      <div>
-                        <p className={`text-xs font-semibold ${quota.paid ? "text-emerald-700" : "text-foreground"}`}>
-                          Cuota {quota.number}
-                        </p>
-                        <p className="text-[10px] text-muted-foreground">{quota.date}</p>
-                      </div>
-                    </div>
-                    <span className={`text-xs font-semibold ${quota.paid ? "text-emerald-700" : "text-amber-700"}`}>
-                      {formatCurrency(quota.amount)}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          )}
-        </Card>
-
-        {/* Fechas del préstamo mejorado */}
-        <Card className="border-teal-100 shadow-sm">
-          <CardContent className="p-5 space-y-3">
-            <h4 className="font-semibold text-sm text-foreground flex items-center gap-2">
-              <Calendar className="h-4 w-4 text-teal-600" />
-              Fechas del préstamo
-            </h4>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-gradient-to-br from-teal-50 to-teal-100/50 rounded-lg p-4 border border-teal-200">
-                <p className="text-[10px] text-teal-700/70 mb-1 font-medium">Inicio del préstamo</p>
-                <p className="font-semibold text-teal-700 text-sm">{mockLoanData.startDate}</p>
-              </div>
-              <div className="bg-gradient-to-br from-emerald-50 to-emerald-100/50 rounded-lg p-4 border border-emerald-200">
-                <p className="text-[10px] text-emerald-700/70 mb-1 font-medium">Fin del préstamo</p>
-                <p className="font-semibold text-emerald-700 text-sm">{mockLoanData.endDate}</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Nota informativa mejorada */}
-        <div className="bg-teal-50 border border-teal-200 rounded-lg p-4 text-center">
-          <p className="text-xs text-teal-700 font-medium">
-            ✓ Una vez completadas tus {mockLoanData.totalInstallments} cuotas, podrás acceder nuevamente a nuestras ofertas preaprobadas.
-          </p>
+    <Card className="border-teal-200/50 shadow-md rounded-2xl overflow-hidden mb-4">
+      <button
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="w-full px-4 md:px-6 py-4 flex items-start justify-between hover:bg-teal-50/30 transition-colors"
+      >
+        <div className="flex items-start gap-3 flex-1 text-left">
+          <div className="p-2 bg-teal-100 rounded-full flex-shrink-0 mt-0.5">
+            <CheckCircle2 className="h-4 w-4 text-teal-600" />
+          </div>
+          <div className="min-w-0">
+            <p className="text-xs text-teal-600 font-semibold uppercase tracking-wide">Operación activa</p>
+            <p className="text-sm md:text-base font-semibold text-foreground mt-1">
+              {mockLoanData.totalInstallments - mockLoanData.remainingInstallments} de {mockLoanData.totalInstallments} cuotas pagadas
+            </p>
+          </div>
         </div>
-      </div>
+        <div className="flex items-center gap-3 flex-shrink-0 ml-3">
+          <div className="text-right">
+            <p className="text-xs text-foreground/60 mb-1">Progreso</p>
+            <p className="text-xl font-bold text-teal-600">{progressPercentage.toFixed(0)}%</p>
+          </div>
+          {isExpanded ? (
+            <ChevronUp className="h-5 w-5 text-teal-600" />
+          ) : (
+            <ChevronDown className="h-5 w-5 text-teal-600" />
+          )}
+        </div>
+      </button>
+
+      {isExpanded && (
+        <div className="border-t border-teal-100/50 px-4 md:px-6 py-4 space-y-4">
+          {/* Barra de progreso */}
+          <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full transition-all duration-500"
+              style={{ width: `${progressPercentage}%` }}
+            />
+          </div>
+
+          {/* Grid compacto: 2 columnas en mobile, 4 en desktop */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {/* Monto original */}
+            <div className="bg-gradient-to-br from-emerald-50 to-emerald-50/50 rounded-lg p-3 border border-emerald-200/40">
+              <p className="text-xs text-foreground/60 font-medium mb-1">Monto original</p>
+              <p className="font-bold text-emerald-700">{formatCurrency(mockLoanData.totalLoanAmount)}</p>
+            </div>
+
+            {/* Saldo pendiente */}
+            <div className="bg-gradient-to-br from-amber-50 to-amber-50/50 rounded-lg p-3 border border-amber-200/40">
+              <p className="text-xs text-foreground/60 font-medium mb-1">Saldo pendiente</p>
+              <p className="font-bold text-amber-700">{formatCurrency(mockLoanData.pendingAmount)}</p>
+            </div>
+
+            {/* Cuota mensual */}
+            <div className="bg-gradient-to-br from-teal-50 to-teal-50/50 rounded-lg p-3 border border-teal-200/40">
+              <p className="text-xs text-foreground/60 font-medium mb-1">Cuota mensual</p>
+              <p className="font-bold text-teal-700">{formatCurrency(mockLoanData.monthlyPayment)}</p>
+            </div>
+
+            {/* Cuotas restantes */}
+            <div className="bg-gradient-to-br from-blue-50 to-blue-50/50 rounded-lg p-3 border border-blue-200/40">
+              <p className="text-xs text-foreground/60 font-medium mb-1">Cuotas restantes</p>
+              <p className="font-bold text-blue-700">{mockLoanData.remainingInstallments} de {mockLoanData.totalInstallments}</p>
+            </div>
+          </div>
+
+          {/* Próximo pago destacado */}
+          {nextQuota && (
+            <div className="bg-gradient-to-r from-amber-500/10 to-orange-500/10 rounded-lg p-4 border border-amber-200/50">
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3 flex-1">
+                  <Clock className="h-5 w-5 text-amber-600 flex-shrink-0" />
+                  <div className="min-w-0">
+                    <p className="text-xs text-amber-700/70 font-medium">Próximo pago</p>
+                    <p className="text-sm md:text-base font-semibold text-amber-900 truncate">Cuota {nextQuota.number} • {nextQuota.date}</p>
+                  </div>
+                </div>
+                <p className="font-bold text-amber-700 text-lg flex-shrink-0">{formatCurrency(nextQuota.amount)}</p>
+              </div>
+            </div>
+          )}
+
+          {/* ID de operación */}
+          <div className="text-xs text-foreground/50 text-center pt-2 border-t border-teal-100/50">
+            ID: {mockLoanData.id}
+          </div>
+        </div>
+      )}
+    </Card>
+  )
+}
+
+export default function PrestamoVigentePage() {
+  const calculateAvailableAmount = (basePercentage: number) => {
+    const maxFromSalary = mockUser.netSalary * basePercentage
+    const totalDeductions = mockUser.legalDeductions + mockUser.judicialDeductions + mockUser.thirdPartyDeductions
+    const availableBase = mockUser.netSalary - totalDeductions
+    const available = Math.min(maxFromSalary, availableBase)
+    return Math.min(Math.max(0, available), mockUser.netSalary * 0.5)
+  }
+
+  const salaryAdvanceAmount = calculateAvailableAmount(0.5)
+  const personalLoanAmount = calculateAvailableAmount(0.5)
+  const unreadNotifications = 2
+
+  return (
+    <div className="min-h-screen bg-background flex flex-col">
+      <UserHeader 
+        userName={mockUser.name} 
+        employeeId={mockUser.employeeId} 
+        unreadNotifications={unreadNotifications}
+        className="animate-in fade-in slide-in-from-top-4 duration-700"
+      />
+
+      <main className="flex-1 px-4 py-5 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150 flex flex-col overflow-y-auto max-h-[calc(100vh-120px)] space-y-6">
+        {/* Card de Operación Activa (Expandible) */}
+        <div>
+          <p className="text-xs font-semibold text-foreground/70 uppercase tracking-wide px-1 mb-2">Tu préstamo activo</p>
+          <ActiveLoanCard />
+        </div>
+
+        {/* Cards de Acceso (Igual al HOME) */}
+        <ProductCards
+          salaryAdvanceAmount={salaryAdvanceAmount}
+          personalLoanAmount={personalLoanAmount}
+          netSalary={mockUser.netSalary}
+          legalDeductions={mockUser.legalDeductions}
+          judicialDeductions={mockUser.judicialDeductions}
+          thirdPartyDeductions={mockUser.thirdPartyDeductions}
+        />
+      </main>
 
       <AppFooter />
     </div>
