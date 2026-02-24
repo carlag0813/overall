@@ -183,13 +183,12 @@ export function ProductCards({
 
       <Drawer open={showBreakdownModal} onOpenChange={setShowBreakdownModal}>
         <DrawerContent className="max-h-[80vh]">
-          <DrawerHeader className="text-left flex items-center justify-between">
+          <DrawerHeader className="text-left">
             <DrawerTitle className="flex items-center gap-2 text-lg font-bold">
               <Eye className="h-5 w-5 text-primary" />
               Desglose del Monto
             </DrawerTitle>
-            <DrawerClose className="p-2 hover:bg-foreground/10 rounded-full transition-colors">
-              <X className="h-5 w-5 text-foreground" />
+            <DrawerClose className="absolute right-4 top-4 opacity-70 hover:opacity-100">
               <span className="sr-only">Cerrar</span>
             </DrawerClose>
           </DrawerHeader>
@@ -244,7 +243,12 @@ export function ProductCards({
           </div>
 
           <DrawerFooter className="border-t">
-            {/* El cierre se maneja con la X en el header */}
+            <Button 
+              className="w-full font-semibold h-11 bg-primary hover:bg-primary/90" 
+              onClick={() => setShowBreakdownModal(false)}
+            >
+              Entendido
+            </Button>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
